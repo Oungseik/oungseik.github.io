@@ -16,6 +16,6 @@ export default {
 	},
 	plugins: [typography, daisyui],
 	themes: [
-      catppuccin('macchiato'),
+      catppuccin('macchiato') ,
     ],
 };
