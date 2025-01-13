@@ -7,7 +7,7 @@ import tailwind from "@astrojs/tailwind";
 
 // https://astro.build/config
 export default defineConfig({
-	outDir: "./docs",
+	// outDir: "./docs",
 	site: "https://oungseik.github.io",
 	markdown: {
 		shikiConfig: {
