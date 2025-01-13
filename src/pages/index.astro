@@ -1,0 +1,47 @@
+---
+import BaseHead from "../components/BaseHead.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+	</head>
+	<body>
+		<Header />
+		<main
+			class="grid min-h-dvh place-content-center rounded-xl bg-cover px-4 md:bg-center"
+			style="background-image: url('Hexagon.svg');"
+		>
+			<div class="rounded-xl bg-base-200 p-8 px-2 text-center md:max-w-2xl">
+				<div class="font-bold">
+					<h1 class="text-lg">
+						Hi, I'm <span class="text-3xl md:text-4xl">Oung Seik Nyan</span>
+					</h1>
+					<h2 class="mt-2 text-lg md:text-2xl">
+						Full-Stack Developer | Problem Solver | Tech Enthusiast
+					</h2>
+				</div>
+				<div class="mt-6 md:mt-8">
+					<p>
+						I specialize in building robust, scalable web applications and delivering type-safe,
+						maintainable solutions with JavaScript/TypeScript ecosystem.
+					</p>
+					<p>
+						I'm passionate about functional programming, Linux systems, and system programming
+						languages. Let's collaborate to build something extraordinary!
+					</p>
+
+					<div class="mt-6 flex justify-center gap-4 md:mt-8 md:gap-8">
+						<a href="/#projects" class="btn btn-outline">Explore my work</a>
+						<a href="/#contact" class="btn btn-outline">Get in touch</a>
+					</div>
+				</div>
+			</div>
+		</main>
+		<Footer />
+	</body>
+</html>
