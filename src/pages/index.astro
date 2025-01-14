@@ -2,6 +2,7 @@
 import BaseHead from "../components/BaseHead.astro";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
+import Projects from "../components/Projects.astro";
 import WorkHistory from "../components/WorkHistory.astro";
 import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
 ---
@@ -30,9 +31,9 @@ import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
 		</style>
 	</head>
 	<body>
+		<Header />
 		<section class="hero-section min-h-dvh bg-cover md:bg-center">
-			<Header />
-			<main class="mt-28 grid place-content-center px-4">
+			<main class="grid place-content-center px-4 pt-40">
 				<div class="rounded-lg bg-base-200 p-8 px-2 text-center md:max-w-4xl">
 					<div class="font-bold">
 						<h1 class="text-3xl md:text-5xl">
@@ -62,6 +63,7 @@ import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
 		</section>
 
 		<WorkHistory />
+		<Projects />
 		<Footer />
 	</body>
 </html>

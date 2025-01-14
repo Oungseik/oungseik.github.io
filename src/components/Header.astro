@@ -2,9 +2,9 @@
 const pathname = Astro.url.pathname;
 ---
 
-<header class="sticky left-0 top-0 shadow-lg">
-	<nav class="flex items-center justify-center bg-base-100/80">
-		<ul id="nav-items" class="menu menu-horizontal rounded-lg">
+<header class="fixed left-0 top-0 z-10 w-full bg-base-200/90 shadow-lg">
+	<nav class="flex items-center justify-center">
+		<ul id="nav-items" class="menu menu-horizontal rounded-lg md:text-lg">
 			<li>
 				<a href="/" class={pathname === "/" ? "text-info" : ""}>Home</a>
 			</li>
