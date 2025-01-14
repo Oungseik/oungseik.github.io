@@ -2,22 +2,41 @@
 import BaseHead from "../components/BaseHead.astro";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
+import WorkHistory from "../components/WorkHistory.astro";
 import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
 ---
 
 <!doctype html>
-<html lang="en" data-theme="dark">
+<html lang="en">
 	<head>
 		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+		<style>
+			[data-theme="dark"] .hero-section {
+				background-image: url("Hexagon.svg");
+			}
+			[data-theme="light"] .hero-section {
+				background-image: url("HexagonLight.svg");
+			}
+			@media (prefers-color-scheme: dark) {
+				.hero-section {
+					background-image: url("Hexagon.svg");
+				}
+			}
+			@media (prefers-color-scheme: light) {
+				.hero-section {
+					background-image: url("HexagonLight.svg");
+				}
+			}
+		</style>
 	</head>
 	<body>
-		<div class="min-h-dvh bg-cover md:bg-center" style="background-image: url('Hexagon.svg');">
+		<section class="hero-section min-h-dvh bg-cover md:bg-center">
 			<Header />
 			<main class="mt-28 grid place-content-center px-4">
-				<div class="rounded-lg bg-base-200 p-8 px-2 text-center md:max-w-2xl">
+				<div class="rounded-lg bg-base-200 p-8 px-2 text-center md:max-w-4xl">
 					<div class="font-bold">
-						<h1 class="text-3xl md:text-4xl">
-							Hi, I'm <span class="text-3xl md:text-4xl">Oung Seik Nyan</span>
+						<h1 class="text-3xl md:text-5xl">
+							Hi, I'm <span>Oung Seik Nyan</span>
 						</h1>
 						<h2 class="mt-2 text-lg md:text-2xl">
 							Full-Stack Developer | Problem Solver | Tech Enthusiast
@@ -40,7 +59,9 @@ import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
 					</div>
 				</div>
 			</main>
-		</div>
+		</section>
+
+		<WorkHistory />
 		<Footer />
 	</body>
 </html>
