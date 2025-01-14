@@ -9,10 +9,14 @@ const pathname = Astro.url.pathname;
 				<a href="/" class={pathname === "/" ? "text-info" : ""}>Home</a>
 			</li>
 			<li>
-				<a href="/blog" class={pathname === "/blog" ? "text-info" : ""}>Blog</a>
+				<a href="/blog" class={pathname === "/blog" || pathname === "/blog/" ? "text-info" : ""}
+					>Blog</a
+				>
 			</li>
 			<li>
-				<a href="/about" class={pathname === "/about" ? "text-info" : ""}>About</a>
+				<a href="/about" class={pathname === "/about" || pathname === "/about/" ? "text-info" : ""}
+					>About</a
+				>
 			</li>
 		</ul>
 	</nav>
