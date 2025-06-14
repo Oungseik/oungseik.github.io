@@ -1,22 +1,28 @@
+---
+import { Picture } from "astro:assets";
+import TestCanvasImage from "../../public/testcanvas/devices.png";
+import NixOsImage from "../../public/workspace/nixos.png";
+---
+
 <section class="bg-base-200 py-10 md:py-24" id="projects">
 	<div class="px-4">
-		<h2 class="text-center text-2xl font-bold uppercase underline underline-offset-4 md:text-4xl">
-			Projects
+		<h2 class="text-center text-2xl font-bold underline underline-offset-4 md:text-4xl">
+			PROJECTS
 		</h2>
 		<div class="mx-auto mt-4 md:mt-14 md:max-w-3xl">
 			<!-- card start -->
-			<div class="grid grid-cols-1 rounded-md bg-base-100 shadow-lg md:grid-cols-2">
+			<div class="bg-base-100 grid grid-cols-1 rounded-md shadow-lg md:grid-cols-2">
 				<figure>
-					<img class="h-full" src="testcanvas/devices.png" alt="test canvas" />
+					<Picture class="h-full" src={TestCanvasImage} alt="test canvas" />
 				</figure>
 				<div class="card-body">
-					<h2 class="card-title text-accent">Test Canvas</h2>
-					<p>
+					<h2 class="card-title text-info">Test Canvas</h2>
+					<p class="text-base">
 						Private Device Cloud platform enabling effortless testing and optimization on actual
 						Android and iOS devices for impeccable app quality and performance.
 					</p>
 					<div class="card-actions justify-end">
-						<a href="/projects/test-canvas" class="btn btn-outline text-accent"
+						<a href="/projects/test-canvas" class="btn btn-outline text-primary"
 							>View Project
 							<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
 								<path
@@ -34,13 +40,13 @@
 			<!-- card end -->
 
 			<!-- card start -->
-			<div class="mt-4 grid grid-cols-1 rounded-md bg-base-100 shadow-lg md:mt-8 md:grid-cols-2">
+			<div class="bg-base-100 mt-4 grid grid-cols-1 rounded-md shadow-lg md:mt-8 md:grid-cols-2">
 				<figure class="md:order-last">
-					<img class="h-full" src="workspace/nixos.png" alt="my nixos envrionment" />
+					<Picture class="h-full" src={NixOsImage} alt="my nixos envrionment" />
 				</figure>
 				<div class="card-body">
-					<h2 class="card-title text-accent">Nix Config</h2>
-					<p>
+					<h2 class="card-title text-info">Nix Config</h2>
+					<p class="text-base">
 						My ever growing Desktop &amp; Neovim configuration in <a
 							class="link"
 							href="https://nixos.org/"
@@ -48,7 +54,7 @@
 						>, which can easily adopt, and extend by everyone.
 					</p>
 					<div class="card-actions justify-end">
-						<a href="/projects/nix-config" class="btn btn-outline text-accent"
+						<a href="/projects/nix-config" class="btn btn-outline text-primary"
 							>View Project
 							<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
 								<path

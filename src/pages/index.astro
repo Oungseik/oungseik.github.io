@@ -3,7 +3,7 @@ import BaseHead from "../components/BaseHead.astro";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 import Projects from "../components/Projects.astro";
-import SkillsAndExperiences from "../components/SkillsAndExperiences.astro";
+import Experiences from "../components/Experiences.astro";
 import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
 ---
 
@@ -54,7 +54,7 @@ import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
 						</p>
 
 						<div class="mt-6 flex justify-center gap-4 md:mt-8 md:gap-8">
-							<a href="/#projects" class="btn btn-outline btn-info">Explore my work</a>
+							<a href="/#projects" class="btn btn-primary">Explore my work</a>
 							<a href="/#contact" class="btn btn-outline">Get in touch</a>
 						</div>
 					</div>
@@ -63,7 +63,7 @@ import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
 		</section>
 
 		<Projects />
-		<SkillsAndExperiences />
+		<Experiences />
 		<Footer />
 	</body>
 </html>
