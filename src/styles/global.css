@@ -3,8 +3,11 @@
 @plugin '@tailwindcss/typography';
 
 @plugin "daisyui" {
-  themes: dark --default, light;
+  themes: false;
 }
+
+@plugin "./catppuccinTheme.latte.ts";
+@plugin "./catppuccinTheme.macchiato.ts";
 
 @theme {
   --font-mono:
