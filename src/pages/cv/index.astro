@@ -1,0 +1,1057 @@
+---
+import BaseHead from "../../components/BaseHead.astro";
+import Header from "../../components/Header.astro";
+import Footer from "../../components/Footer.astro";
+
+const pageTitle = "CV | Min Aung Thu Win";
+const pageDescription =
+	"Interactive CV for Min Aung Thu Win, a backend-focused software engineer building scalable systems, automation platforms, and developer tooling.";
+
+const cv = {
+	name: "Min Aung Thu Win",
+	headline: "Senior Backend Engineer / Software Engineer",
+	location: "Myanmar",
+	availability: "Remote-ready",
+	githubLabel: "Oungseik",
+	githubUrl: "https://github.com/oungseik",
+	email: "mhemaungthuwin@gmail.com",
+	emailUrl: "mailto:mhemaungthuwin@gmail.com",
+	summary:
+		"Backend-focused Software Engineer with 4+ years of experience designing and building scalable systems, automation platforms, and developer tooling. Strong expertise in TypeScript ecosystems, distributed systems, and backend architecture, with hands-on experience in device farms, real-time systems, and AI-powered data services. Proven ability to deliver high-impact solutions that reduce manual operations and improve system efficiency.",
+	experience: [
+		{
+			company: "Crossworks",
+			role: "Full-stack Developer",
+			period: "Apr 2025 - Present",
+			bullets: [
+				"Develop and maintain full-stack applications with focus on backend architecture and system integrations.",
+				"Build scalable APIs and services using modern TypeScript and backend frameworks.",
+				"Collaborate with cross-functional teams to deliver production-grade features.",
+			],
+		},
+		{
+			company: "Brillar",
+			role: "Backend Developer -> Senior Backend Developer",
+			period: "Sep 2023 - Apr 2025",
+			bullets: [
+				"Led backend development for Test Canvas, an internal testing infrastructure platform.",
+				"Designed real-time device management, monitoring, authentication, and access control systems.",
+				"Migrated a large JavaScript codebase to TypeScript to improve maintainability and type safety.",
+				"Enabled distributed device execution across multiple servers.",
+			],
+			impact: [
+				"Eliminated manual test environment setup for QA teams.",
+				"Enabled parallel execution across 10+ devices.",
+				"Delivered platform-agnostic testing support for Android and iOS.",
+			],
+		},
+		{
+			company: "Kiosk",
+			role: "Full-stack Developer",
+			period: "Apr 2023 - Sep 2023",
+			bullets: [
+				"Built and maintained full-stack features for production systems.",
+				"Contributed across frontend and backend logic using modern JavaScript frameworks.",
+			],
+		},
+		{
+			company: "Qualy Myanmar Inc",
+			role: "Frontend Developer",
+			period: "Apr 2022 - Apr 2023",
+			bullets: [
+				"Developed responsive frontend applications.",
+				"Worked closely with backend teams to integrate APIs and improve user experience.",
+			],
+		},
+	],
+	projects: [
+		{
+			name: "Bookogsend",
+			tagline: "Shipping management platform",
+			link: "https://bookogsend.dk/",
+			points: [
+				"Built a multi-service shipping platform integrating providers like GLS and TeamJK.",
+				"Developed a WooCommerce plugin to automate shipment synchronization.",
+				"Implemented shipping methods, payment systems, reconciliation workflows, and inventory features.",
+			],
+			tech: [
+				"Next.js",
+				"tRPC",
+				"Prisma",
+				"PostgreSQL",
+				"Firebase Auth",
+				"Google Cloud Storage",
+				"QStash",
+				"Vercel",
+			],
+			impact: [
+				"Automated shipping workflows for e-commerce merchants.",
+				"Reduced manual shipment handling.",
+				"Enabled seamless WooCommerce integration for operational growth.",
+			],
+		},
+		{
+			name: "Test Canvas",
+			tagline: "Device farm and testing platform",
+			points: [
+				"Built an internal device farm system for Android and iOS testing.",
+				"Automated Appium and Selenium environment setup per device.",
+				"Implemented real-time monitoring, screen mirroring, and distributed orchestration across multiple servers.",
+			],
+			tech: ["Express.js", "MongoDB", "Socket.IO", "Appium", "ADB", "go-ios", "Next.js"],
+			impact: [
+				"Eliminated manual setup for testers.",
+				"Enabled concurrent testing on 10+ devices.",
+				"Reduced QA bottlenecks and improved throughput.",
+			],
+		},
+		{
+			name: "SQL Agent",
+			tagline: "Natural language data interface",
+			points: [
+				"Built a microservice allowing users to query databases using natural language.",
+				"Generated charts and insights automatically from user queries.",
+			],
+			tech: ["Python", "FastAPI", "LangChain"],
+		},
+	],
+	skills: [
+		{
+			label: "Languages",
+			items: ["TypeScript", "JavaScript", "Rust", "Python", "Go", "PHP"],
+		},
+		{
+			label: "Backend",
+			items: ["Express.js", "Hono", "tRPC", "FastAPI", "Axum", "chi"],
+		},
+		{
+			label: "Frontend",
+			items: ["Next.js", "SvelteKit", "shadcn"],
+		},
+		{
+			label: "DevOps and Infrastructure",
+			items: ["Docker", "Nginx", "Nix", "NixOS"],
+		},
+		{
+			label: "Databases",
+			items: ["PostgreSQL", "MongoDB", "SQLite", "Prisma", "Drizzle", "Ent"],
+		},
+	],
+	education: ["Bachelor's Degree in Mathematics"],
+	strengths: [
+		"Strong system design and backend architecture skills.",
+		"Experience with real-time systems and distributed infrastructure.",
+		"Focus on developer productivity and automation.",
+		"Comfortable working in remote and async environments.",
+	],
+};
+
+const downloadPayload = JSON.stringify(cv).replaceAll("<", "\\u003c");
+---
+
+<!doctype html>
+<html lang="en" data-theme="latte">
+	<head>
+		<BaseHead title={pageTitle} description={pageDescription} />
+	</head>
+	<body class="bg-base-100 text-base-content">
+		<div class="site-chrome">
+			<Header />
+		</div>
+
+		<main class="cv-page relative overflow-hidden pb-20">
+			<div
+				class="cv-glow pointer-events-none absolute inset-x-0 top-0 h-[32rem] opacity-80"
+				aria-hidden="true"
+			>
+			</div>
+
+			<div class="mx-auto max-w-6xl px-4 pt-28">
+				<section
+					class="cv-actions mb-6 flex flex-col gap-5 lg:flex-row lg:items-end lg:justify-between"
+				>
+					<div class="max-w-2xl">
+						<p class="cv-kicker">Curriculum Vitae</p>
+						<h1
+							class="mt-3 text-4xl font-bold tracking-tight text-balance text-[#171410] md:text-5xl"
+						>
+							A live CV page with a downloadable version.
+						</h1>
+						<p class="mt-4 text-base leading-7 text-[#5d544d] md:text-lg">
+							This page turns your CV markdown into a readable web CV while keeping it easy to
+							export for recruiters and hiring teams.
+						</p>
+					</div>
+
+					<div class="flex flex-col gap-3 sm:flex-row">
+						<button
+							id="download-cv"
+							class="btn rounded-full border-0 bg-[#171410] px-7 text-[#f7f1e8]"
+						>
+							Download CV
+						</button>
+						<button
+							id="print-cv"
+							class="btn rounded-full border border-[#171410]/15 bg-[#f7f1e8] px-7 text-[#171410]"
+						>
+							Save as PDF
+						</button>
+					</div>
+				</section>
+
+				<p class="cv-note mb-8 max-w-2xl text-sm leading-6 text-[#6a615a]">
+					Download CV saves a standalone HTML copy. Save as PDF opens the browser print dialog so
+					visitors can export a PDF.
+				</p>
+
+				<article
+					id="cv-document"
+					class="cv-paper overflow-hidden rounded-[2rem] border border-[#171410]/8 bg-[#f7f1e8] text-[#171410] shadow-[0_32px_80px_rgba(23,20,16,0.12)]"
+				>
+					<div class="grid gap-0 lg:grid-cols-[0.82fr_1.18fr]">
+						<section
+							class="border-b border-[#171410]/10 bg-[#171410] px-6 py-8 text-[#f7f1e8] md:px-8 md:py-10 lg:col-span-2"
+						>
+							<div class="grid gap-8 xl:grid-cols-[1.25fr_0.75fr] xl:items-end">
+								<div>
+									<p class="font-mono text-xs tracking-[0.32em] text-[#d9c7b5] uppercase">
+										Backend Systems / Automation / Developer Tooling
+									</p>
+									<h2 class="mt-4 text-4xl font-bold tracking-tight text-balance md:text-6xl">
+										{cv.name}
+									</h2>
+									<p class="mt-4 max-w-2xl text-lg leading-8 text-[#eadbcc] md:text-xl">
+										{cv.headline}
+									</p>
+								</div>
+
+								<div class="grid gap-3 sm:grid-cols-3 xl:grid-cols-1">
+									<div class="rounded-[1.4rem] border border-white/10 bg-white/6 p-4">
+										<p class="font-mono text-[0.7rem] tracking-[0.24em] text-[#d2c0ae] uppercase">
+											Base
+										</p>
+										<p class="mt-3 text-lg font-semibold">{cv.location}</p>
+									</div>
+									<div class="rounded-[1.4rem] border border-white/10 bg-white/6 p-4">
+										<p class="font-mono text-[0.7rem] tracking-[0.24em] text-[#d2c0ae] uppercase">
+											Mode
+										</p>
+										<p class="mt-3 text-lg font-semibold">{cv.availability}</p>
+									</div>
+									<div class="rounded-[1.4rem] border border-white/10 bg-white/6 p-4">
+										<p class="font-mono text-[0.7rem] tracking-[0.24em] text-[#d2c0ae] uppercase">
+											Focus
+										</p>
+										<p class="mt-3 text-lg font-semibold">Backend systems at scale</p>
+									</div>
+								</div>
+							</div>
+						</section>
+
+						<aside
+							class="border-r-0 border-[#171410]/10 bg-[#efe6db] px-6 py-8 md:px-8 md:py-10 lg:border-r"
+						>
+							<section>
+								<p class="cv-kicker">Contact</p>
+								<div class="mt-5 space-y-4">
+									<a class="cv-contact-card" href={cv.emailUrl}>
+										<span class="cv-contact-label">Email</span>
+										<span class="cv-contact-value">{cv.email}</span>
+									</a>
+									<a class="cv-contact-card" href={cv.githubUrl} target="_blank" rel="noreferrer">
+										<span class="cv-contact-label">GitHub</span>
+										<span class="cv-contact-value">{cv.githubLabel}</span>
+									</a>
+								</div>
+							</section>
+
+							<section class="mt-10">
+								<p class="cv-kicker">Strengths</p>
+								<ul class="mt-5 space-y-3">
+									{cv.strengths.map((strength) => <li class="cv-list-item">{strength}</li>)}
+								</ul>
+							</section>
+
+							<section class="mt-10">
+								<p class="cv-kicker">Skills</p>
+								<div class="mt-5 space-y-6">
+									{
+										cv.skills.map((group) => (
+											<div>
+												<h3 class="text-sm font-semibold tracking-[0.16em] text-[#5c534c] uppercase">
+													{group.label}
+												</h3>
+												<div class="mt-3 flex flex-wrap gap-2">
+													{group.items.map((item) => (
+														<span class="cv-chip">{item}</span>
+													))}
+												</div>
+											</div>
+										))
+									}
+								</div>
+							</section>
+
+							<section class="mt-10">
+								<p class="cv-kicker">Education</p>
+								<div class="mt-5 space-y-3">
+									{
+										cv.education.map((item) => (
+											<div class="rounded-[1.2rem] border border-[#171410]/8 bg-white/60 px-4 py-4">
+												<p class="text-base font-medium text-[#171410]">{item}</p>
+											</div>
+										))
+									}
+								</div>
+							</section>
+						</aside>
+
+						<div class="px-6 py-8 md:px-10 md:py-10">
+							<section class="border-b border-[#171410]/10 pb-8">
+								<p class="cv-kicker">Summary</p>
+								<p class="mt-5 text-lg leading-8 text-[#2f2924]">
+									{cv.summary}
+								</p>
+							</section>
+
+							<section class="pt-8">
+								<div class="flex items-center justify-between gap-4">
+									<p class="cv-kicker">Experience</p>
+									<p class="font-mono text-xs tracking-[0.22em] text-[#8a7c70] uppercase">
+										2022 - Present
+									</p>
+								</div>
+
+								<div class="cv-timeline mt-6 space-y-8">
+									{
+										cv.experience.map((item) => (
+											<article class="cv-entry">
+												<div class="flex flex-col gap-3 md:flex-row md:items-start md:justify-between">
+													<div>
+														<h3 class="text-2xl font-semibold tracking-tight text-[#171410]">
+															{item.role}
+														</h3>
+														<p class="mt-1 text-base font-medium text-[#6a5f57]">{item.company}</p>
+													</div>
+													<p class="font-mono text-xs tracking-[0.22em] text-[#8a7c70] uppercase">
+														{item.period}
+													</p>
+												</div>
+
+												<ul class="mt-4 space-y-3">
+													{item.bullets.map((bullet) => (
+														<li class="cv-list-item">{bullet}</li>
+													))}
+												</ul>
+
+												{item.impact && (
+													<div class="mt-5 rounded-[1.4rem] border border-[#c66d45]/18 bg-[#fff7f1] p-5">
+														<p class="font-mono text-xs tracking-[0.22em] text-[#b25732] uppercase">
+															Key impact
+														</p>
+														<ul class="mt-3 space-y-3">
+															{item.impact.map((impact) => (
+																<li class="cv-list-item">{impact}</li>
+															))}
+														</ul>
+													</div>
+												)}
+											</article>
+										))
+									}
+								</div>
+							</section>
+
+							<section class="border-t border-[#171410]/10 pt-8">
+								<p class="cv-kicker">Projects</p>
+								<div class="mt-6 grid gap-5">
+									{
+										cv.projects.map((project) => (
+											<article class="rounded-[1.6rem] border border-[#171410]/10 bg-white/55 p-6">
+												<div class="flex flex-col gap-3 md:flex-row md:items-start md:justify-between">
+													<div>
+														<h3 class="text-2xl font-semibold tracking-tight text-[#171410]">
+															{project.name}
+														</h3>
+														<p class="mt-2 text-base text-[#6b6057]">{project.tagline}</p>
+													</div>
+													{project.link && (
+														<a
+															href={project.link}
+															target="_blank"
+															rel="noreferrer"
+															class="inline-flex items-center rounded-full border border-[#171410]/10 px-4 py-2 text-sm font-medium text-[#171410] transition hover:border-[#171410]/25 hover:bg-white"
+														>
+															Visit project
+														</a>
+													)}
+												</div>
+
+												<ul class="mt-5 space-y-3">
+													{project.points.map((point) => (
+														<li class="cv-list-item">{point}</li>
+													))}
+												</ul>
+
+												<div class="mt-5">
+													<p class="font-mono text-xs tracking-[0.22em] text-[#8a7c70] uppercase">
+														Tech
+													</p>
+													<div class="mt-3 flex flex-wrap gap-2">
+														{project.tech.map((item) => (
+															<span class="cv-chip">{item}</span>
+														))}
+													</div>
+												</div>
+
+												{project.impact && (
+													<div class="mt-5 rounded-[1.4rem] border border-[#171410]/8 bg-[#f3ece2] p-5">
+														<p class="font-mono text-xs tracking-[0.22em] text-[#8a7c70] uppercase">
+															Impact
+														</p>
+														<ul class="mt-3 space-y-3">
+															{project.impact.map((impact) => (
+																<li class="cv-list-item">{impact}</li>
+															))}
+														</ul>
+													</div>
+												)}
+											</article>
+										))
+									}
+								</div>
+							</section>
+						</div>
+					</div>
+				</article>
+			</div>
+		</main>
+
+		<div class="site-chrome">
+			<Footer />
+		</div>
+
+		<script id="cv-download-data" type="application/json" set:html={downloadPayload} />
+
+		<script>
+			type DownloadProject = {
+				name: string;
+				tagline: string;
+				link?: string;
+				points: string[];
+				tech: string[];
+				impact?: string[];
+			};
+
+			type DownloadExperience = {
+				company: string;
+				role: string;
+				period: string;
+				bullets: string[];
+				impact?: string[];
+			};
+
+			type DownloadSkillGroup = {
+				label: string;
+				items: string[];
+			};
+
+			type DownloadCv = {
+				name: string;
+				headline: string;
+				location: string;
+				availability: string;
+				githubLabel: string;
+				githubUrl: string;
+				email: string;
+				emailUrl: string;
+				summary: string;
+				experience: DownloadExperience[];
+				projects: DownloadProject[];
+				skills: DownloadSkillGroup[];
+				education: string[];
+				strengths: string[];
+			};
+
+			const downloadButton = document.getElementById("download-cv");
+			const printButton = document.getElementById("print-cv");
+			const payloadElement = document.getElementById("cv-download-data");
+			const payload = payloadElement?.textContent
+				? (JSON.parse(payloadElement.textContent) as DownloadCv)
+				: null;
+
+			function escapeHtml(value: string) {
+				return value
+					.replaceAll("&", "&amp;")
+					.replaceAll("<", "&lt;")
+					.replaceAll(">", "&gt;")
+					.replaceAll('"', "&quot;")
+					.replaceAll("'", "&#39;");
+			}
+
+			function renderList(items: string[]) {
+				return items.map((item) => `<li>${escapeHtml(item)}</li>`).join("");
+			}
+
+			function renderProjects(projects: DownloadProject[]) {
+				return projects
+					.map((project) => {
+						const impactBlock = project.impact?.length
+							? `
+								<div class="block">
+									<p class="eyebrow">Impact</p>
+									<ul>${renderList(project.impact)}</ul>
+								</div>
+							`
+							: "";
+
+						const linkBlock = project.link
+							? `<p class="link"><a href="${escapeHtml(project.link)}">${escapeHtml(project.link)}</a></p>`
+							: "";
+
+						return `
+							<section class="card">
+								<h3>${escapeHtml(project.name)}</h3>
+								<p class="subhead">${escapeHtml(project.tagline)}</p>
+								${linkBlock}
+								<ul>${renderList(project.points)}</ul>
+								<div class="block">
+									<p class="eyebrow">Tech</p>
+									<p class="stack">${escapeHtml(project.tech.join(", "))}</p>
+								</div>
+								${impactBlock}
+							</section>
+						`;
+					})
+					.join("");
+			}
+
+			function renderExperience(experience: DownloadExperience[]) {
+				return experience
+					.map((item) => {
+						const impactBlock = item.impact?.length
+							? `
+								<div class="impact">
+									<p class="eyebrow">Key impact</p>
+									<ul>${renderList(item.impact)}</ul>
+								</div>
+							`
+							: "";
+
+						return `
+							<section class="timeline-item">
+								<div class="row">
+									<div>
+										<h3>${escapeHtml(item.role)}</h3>
+										<p class="subhead">${escapeHtml(item.company)}</p>
+									</div>
+									<p class="period">${escapeHtml(item.period)}</p>
+								</div>
+								<ul>${renderList(item.bullets)}</ul>
+								${impactBlock}
+							</section>
+						`;
+					})
+					.join("");
+			}
+
+			function renderSkillGroups(groups: DownloadSkillGroup[]) {
+				return groups
+					.map(
+						(group) => `
+							<section class="skill-group">
+								<p class="eyebrow">${escapeHtml(group.label)}</p>
+								<p class="stack">${escapeHtml(group.items.join(", "))}</p>
+							</section>
+						`,
+					)
+					.join("");
+			}
+
+			function buildStandaloneHtml(data: DownloadCv) {
+				return `<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<title>${escapeHtml(data.name)} - CV</title>
+		<style>
+			:root {
+				--paper: #f7f1e8;
+				--paper-dark: #efe6db;
+				--ink: #171410;
+				--muted: #665c54;
+				--accent: #b85f38;
+				--line: rgba(23, 20, 16, 0.1);
+			}
+			* { box-sizing: border-box; }
+			body {
+				margin: 0;
+				font-family: Roboto, "Helvetica Neue", Arial, sans-serif;
+				background:
+					radial-gradient(circle at top left, rgba(184, 95, 56, 0.08), transparent 28%),
+					linear-gradient(180deg, #fbf7f2 0%, #f2ebe2 100%);
+				color: var(--ink);
+				padding: 40px 18px;
+			}
+			.page {
+				max-width: 1080px;
+				margin: 0 auto;
+				background: var(--paper);
+				border: 1px solid var(--line);
+				border-radius: 28px;
+				overflow: hidden;
+				box-shadow: 0 30px 70px rgba(23, 20, 16, 0.12);
+			}
+			.top {
+				padding: 40px;
+				background: linear-gradient(135deg, #171410 0%, #2a231e 100%);
+				color: #f7f1e8;
+				display: grid;
+				gap: 24px;
+				grid-template-columns: 1.2fr 0.8fr;
+			}
+			.kicker,
+			.eyebrow,
+			.period {
+				font-family: "JetBrains Mono", "SFMono-Regular", Consolas, monospace;
+				font-size: 11px;
+				letter-spacing: 0.22em;
+				text-transform: uppercase;
+			}
+			.kicker { color: #d9c7b5; }
+			h1 {
+				margin: 14px 0 0;
+				font-size: clamp(2.4rem, 6vw, 4.5rem);
+				line-height: 0.98;
+			}
+			h2 {
+				margin: 0;
+				font-size: 15px;
+				line-height: 1.4;
+				color: #eadbcc;
+				font-weight: 500;
+			}
+			.quick-grid {
+				display: grid;
+				gap: 12px;
+				grid-template-columns: repeat(3, minmax(0, 1fr));
+				align-self: end;
+			}
+			.quick-card {
+				padding: 16px;
+				border: 1px solid rgba(255, 255, 255, 0.12);
+				border-radius: 18px;
+				background: rgba(255, 255, 255, 0.05);
+			}
+			.quick-card strong {
+				display: block;
+				margin-top: 10px;
+				font-size: 18px;
+			}
+			.content {
+				display: grid;
+				grid-template-columns: 0.82fr 1.18fr;
+			}
+			.sidebar {
+				padding: 34px 32px;
+				background: var(--paper-dark);
+				border-right: 1px solid var(--line);
+			}
+			.main {
+				padding: 34px 40px;
+			}
+			.section + .section {
+				margin-top: 34px;
+			}
+			.panel {
+				padding: 16px 18px;
+				border-radius: 18px;
+				border: 1px solid var(--line);
+				background: rgba(255, 255, 255, 0.62);
+			}
+			.panel + .panel {
+				margin-top: 12px;
+			}
+			.contact-label {
+				display: block;
+				margin-bottom: 6px;
+				font-size: 12px;
+				text-transform: uppercase;
+				letter-spacing: 0.16em;
+				color: var(--muted);
+			}
+			.contact-value,
+			.subhead,
+			.stack {
+				margin: 0;
+				color: var(--ink);
+				line-height: 1.7;
+			}
+			.subhead { color: var(--muted); }
+			.link a {
+				color: var(--accent);
+				text-decoration: none;
+			}
+			ul {
+				margin: 14px 0 0;
+				padding-left: 18px;
+			}
+			li + li {
+				margin-top: 10px;
+			}
+			.summary {
+				font-size: 18px;
+				line-height: 1.9;
+				color: #2f2924;
+				margin: 16px 0 0;
+			}
+			.timeline-item {
+				position: relative;
+				padding-left: 24px;
+				margin-top: 24px;
+			}
+			.timeline-item::before {
+				content: "";
+				position: absolute;
+				left: 0;
+				top: 6px;
+				width: 11px;
+				height: 11px;
+				border-radius: 999px;
+				background: var(--accent);
+				box-shadow: 0 0 0 6px rgba(184, 95, 56, 0.14);
+			}
+			.timeline-item::after {
+				content: "";
+				position: absolute;
+				left: 5px;
+				top: 24px;
+				bottom: -24px;
+				width: 1px;
+				background: rgba(23, 20, 16, 0.1);
+			}
+			.timeline-item:last-child::after {
+				display: none;
+			}
+			.row {
+				display: flex;
+				gap: 18px;
+				justify-content: space-between;
+				align-items: flex-start;
+			}
+			h3 {
+				margin: 0;
+				font-size: 28px;
+				line-height: 1.12;
+			}
+			.period { color: #8a7c70; }
+			.impact {
+				margin-top: 16px;
+				padding: 16px 18px;
+				border-radius: 18px;
+				border: 1px solid rgba(184, 95, 56, 0.18);
+				background: #fff7f1;
+			}
+			.card {
+				margin-top: 18px;
+				padding: 22px;
+				border-radius: 22px;
+				border: 1px solid var(--line);
+				background: rgba(255, 255, 255, 0.62);
+			}
+			.block + .block {
+				margin-top: 16px;
+			}
+			.skill-group + .skill-group {
+				margin-top: 18px;
+			}
+			@media (max-width: 900px) {
+				.top,
+				.content {
+					grid-template-columns: 1fr;
+				}
+				.quick-grid {
+					grid-template-columns: 1fr;
+				}
+				.row {
+					flex-direction: column;
+				}
+			}
+			@media print {
+				body {
+					padding: 0;
+					background: #fff;
+				}
+				.page {
+					box-shadow: none;
+					border-radius: 0;
+					border: 0;
+				}
+			}
+		</style>
+	</head>
+	<body>
+		<main class="page">
+			<section class="top">
+				<div>
+					<p class="kicker">Curriculum Vitae</p>
+					<h1>${escapeHtml(data.name)}</h1>
+					<h2>${escapeHtml(data.headline)}</h2>
+				</div>
+				<div class="quick-grid">
+					<div class="quick-card">
+						<p class="eyebrow">Base</p>
+						<strong>${escapeHtml(data.location)}</strong>
+					</div>
+					<div class="quick-card">
+						<p class="eyebrow">Mode</p>
+						<strong>${escapeHtml(data.availability)}</strong>
+					</div>
+					<div class="quick-card">
+						<p class="eyebrow">Contact</p>
+						<strong>${escapeHtml(data.githubLabel)}</strong>
+					</div>
+				</div>
+			</section>
+			<section class="content">
+				<aside class="sidebar">
+					<section class="section">
+						<p class="eyebrow">Contact</p>
+						<div class="panel">
+							<span class="contact-label">Email</span>
+							<p class="contact-value">${escapeHtml(data.email)}</p>
+						</div>
+						<div class="panel">
+							<span class="contact-label">GitHub</span>
+							<p class="contact-value">${escapeHtml(data.githubUrl)}</p>
+						</div>
+					</section>
+					<section class="section">
+						<p class="eyebrow">Strengths</p>
+						<ul>${renderList(data.strengths)}</ul>
+					</section>
+					<section class="section">
+						<p class="eyebrow">Skills</p>
+						${renderSkillGroups(data.skills)}
+					</section>
+					<section class="section">
+						<p class="eyebrow">Education</p>
+						<ul>${renderList(data.education)}</ul>
+					</section>
+				</aside>
+				<section class="main">
+					<section class="section">
+						<p class="eyebrow">Summary</p>
+						<p class="summary">${escapeHtml(data.summary)}</p>
+					</section>
+					<section class="section">
+						<p class="eyebrow">Experience</p>
+						${renderExperience(data.experience)}
+					</section>
+					<section class="section">
+						<p class="eyebrow">Projects</p>
+						${renderProjects(data.projects)}
+					</section>
+				</section>
+			</section>
+		</main>
+	</body>
+</html>`;
+			}
+
+			downloadButton?.addEventListener("click", () => {
+				if (!payload) return;
+
+				const html = buildStandaloneHtml(payload);
+				const blob = new Blob([html], { type: "text/html;charset=utf-8" });
+				const url = URL.createObjectURL(blob);
+				const link = document.createElement("a");
+
+				link.href = url;
+				link.download = "min-aung-thu-win-cv.html";
+				document.body.append(link);
+				link.click();
+				link.remove();
+
+				window.setTimeout(() => {
+					URL.revokeObjectURL(url);
+				}, 1000);
+			});
+
+			printButton?.addEventListener("click", () => {
+				window.print();
+			});
+		</script>
+	</body>
+</html>
+
+<style is:global>
+	.cv-page {
+		--cv-paper: #f7f1e8;
+		--cv-paper-soft: #efe6db;
+		--cv-ink: #171410;
+		--cv-muted: #665c54;
+		--cv-accent: #b85f38;
+		background:
+			radial-gradient(circle at top left, rgba(184, 95, 56, 0.12), transparent 28%),
+			radial-gradient(circle at 85% 10%, rgba(23, 20, 16, 0.05), transparent 22%),
+			linear-gradient(180deg, #fbf7f2 0%, #f1ebe2 100%);
+	}
+
+	.cv-glow {
+		background:
+			radial-gradient(circle at 10% 20%, rgba(184, 95, 56, 0.16), transparent 24%),
+			radial-gradient(circle at 88% 12%, rgba(23, 20, 16, 0.08), transparent 18%);
+	}
+
+	.cv-kicker {
+		font-family: var(--font-mono);
+		font-size: 0.75rem;
+		letter-spacing: 0.32em;
+		text-transform: uppercase;
+		color: #8a7c70;
+	}
+
+	.cv-chip {
+		display: inline-flex;
+		align-items: center;
+		border-radius: 999px;
+		border: 1px solid rgba(23, 20, 16, 0.08);
+		background: rgba(255, 255, 255, 0.76);
+		padding: 0.55rem 0.85rem;
+		font-size: 0.92rem;
+		line-height: 1;
+		color: #171410;
+	}
+
+	.cv-contact-card {
+		display: block;
+		border-radius: 1.2rem;
+		border: 1px solid rgba(23, 20, 16, 0.08);
+		background: rgba(255, 255, 255, 0.62);
+		padding: 1rem 1.1rem;
+		transition:
+			transform 180ms ease,
+			border-color 180ms ease,
+			background-color 180ms ease;
+	}
+
+	.cv-contact-card:hover {
+		transform: translateY(-2px);
+		border-color: rgba(23, 20, 16, 0.18);
+		background: rgba(255, 255, 255, 0.9);
+	}
+
+	.cv-contact-label {
+		display: block;
+		font-family: var(--font-mono);
+		font-size: 0.72rem;
+		letter-spacing: 0.24em;
+		text-transform: uppercase;
+		color: #8a7c70;
+	}
+
+	.cv-contact-value {
+		margin-top: 0.55rem;
+		display: block;
+		font-size: 1.02rem;
+		font-weight: 500;
+		color: #171410;
+	}
+
+	.cv-list-item {
+		position: relative;
+		padding-left: 1.3rem;
+		color: #2f2924;
+		line-height: 1.75;
+	}
+
+	.cv-list-item::before {
+		content: "";
+		position: absolute;
+		left: 0;
+		top: 0.72rem;
+		height: 0.42rem;
+		width: 0.42rem;
+		border-radius: 999px;
+		background: var(--cv-accent);
+		box-shadow: 0 0 0 0.3rem rgba(184, 95, 56, 0.12);
+	}
+
+	.cv-timeline {
+		position: relative;
+	}
+
+	.cv-entry {
+		position: relative;
+		padding-left: 1.8rem;
+	}
+
+	.cv-entry::before {
+		content: "";
+		position: absolute;
+		left: 0;
+		top: 0.55rem;
+		height: 0.78rem;
+		width: 0.78rem;
+		border-radius: 999px;
+		background: var(--cv-accent);
+		box-shadow: 0 0 0 0.45rem rgba(184, 95, 56, 0.12);
+	}
+
+	.cv-entry::after {
+		content: "";
+		position: absolute;
+		left: 0.37rem;
+		top: 1.55rem;
+		bottom: -2.3rem;
+		width: 1px;
+		background: rgba(23, 20, 16, 0.1);
+	}
+
+	.cv-entry:last-child::after {
+		display: none;
+	}
+
+	@media (max-width: 1023px) {
+		.cv-paper {
+			border-radius: 1.6rem;
+		}
+	}
+
+	@media print {
+		.site-chrome,
+		.cv-actions,
+		.cv-note,
+		.cv-glow {
+			display: none !important;
+		}
+
+		html,
+		body {
+			background: #ffffff !important;
+		}
+
+		.cv-page {
+			padding: 0 !important;
+			background: #ffffff !important;
+		}
+
+		.cv-page > .mx-auto {
+			max-width: none !important;
+			padding: 0 !important;
+		}
+
+		.cv-paper {
+			border: 0 !important;
+			border-radius: 0 !important;
+			box-shadow: none !important;
+		}
+
+		.cv-contact-card,
+		.cv-chip {
+			background: rgba(255, 255, 255, 0.94) !important;
+		}
+	}
+</style>
