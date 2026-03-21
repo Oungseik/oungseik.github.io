@@ -1,0 +1,10 @@
+{
+	"version": 1,
+	"skills": {
+		"daisyui": {
+			"source": "bobmatnyc/claude-mpm-skills",
+			"sourceType": "github",
+			"computedHash": "e0a9aeedd7414ef48837be8cdb7223466d80d831cce908ee8ce2f2d96a9bf964"
+		}
+	}
+}
