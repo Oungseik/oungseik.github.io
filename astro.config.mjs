@@ -3,6 +3,7 @@ import { defineConfig } from "astro/config";
 import mdx from "@astrojs/mdx";
 import sitemap from "@astrojs/sitemap";
 import tailwindcss from "@tailwindcss/vite";
+import llmsIntegration from "./src/integrations/llms.mjs";
 
 // https://astro.build/config
 export default defineConfig({
@@ -16,6 +17,6 @@ export default defineConfig({
 			},
 		},
 	},
-	integrations: [mdx(), sitemap()],
+	integrations: [mdx(), sitemap(), llmsIntegration()],
 	vite: { plugins: [tailwindcss()] },
 });
