@@ -2,3 +2,7 @@ User-agent: *
 Allow: /
 
 Sitemap: https://oungseik.github.io/sitemap-index.xml
+
+# LLM-readable site overview
+# llms.txt: https://oungseik.github.io/llms.txt
+# llms-full.txt: https://oungseik.github.io/llms-full.txt
