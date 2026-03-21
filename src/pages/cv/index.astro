@@ -3,9 +3,9 @@ import BaseHead from "../../components/BaseHead.astro";
 import Header from "../../components/Header.astro";
 import Footer from "../../components/Footer.astro";
 
-const pageTitle = "CV | Min Aung Thu Win";
+const pageTitle = "Download CV | Min Aung Thu Win";
 const pageDescription =
-	"Interactive CV for Min Aung Thu Win, a backend-focused software engineer building scalable systems, automation platforms, and developer tooling.";
+	"Download a PDF copy of Min Aung Thu Win's CV, or review the full web version on this page.";
 
 const cv = {
 	name: "Min Aung Thu Win",
@@ -16,6 +16,7 @@ const cv = {
 	githubUrl: "https://github.com/oungseik",
 	email: "mhemaungthuwin@gmail.com",
 	emailUrl: "mailto:mhemaungthuwin@gmail.com",
+	phone: "+95 9 783 668091",
 	summary:
 		"Backend-focused Software Engineer with 4+ years of experience designing and building scalable systems, automation platforms, and developer tooling. Strong expertise in TypeScript ecosystems, distributed systems, and backend architecture, with hands-on experience in device farms, real-time systems, and AI-powered data services. Proven ability to deliver high-impact solutions that reduce manual operations and improve system efficiency.",
 	experience: [
@@ -175,33 +176,28 @@ const downloadPayload = JSON.stringify(cv).replaceAll("<", "\\u003c");
 						<h1
 							class="mt-3 text-4xl font-bold tracking-tight text-balance text-[#171410] md:text-5xl"
 						>
-							A live CV page with a downloadable version.
+							Download my CV in one click.
 						</h1>
 						<p class="mt-4 text-base leading-7 text-[#5d544d] md:text-lg">
-							This page turns your CV markdown into a readable web CV while keeping it easy to
-							export for recruiters and hiring teams.
+							If you are visiting my website and need a copy of my CV, this page is here to make
+							that easy. You can download a PDF immediately, or review the full version below before
+							saving it.
 						</p>
 					</div>
 
 					<div class="flex flex-col gap-3 sm:flex-row">
 						<button
 							id="download-cv"
-							class="btn rounded-full border border-[#171410]/15 bg-[#f7f1e8] px-7 text-[#171410]"
-						>
-							Download CV
-						</button>
-						<button
-							id="print-cv"
 							class="btn rounded-full border-0 bg-[#171410] px-7 text-[#f7f1e8]"
 						>
-							Save as PDF
+							Download CV PDF
 						</button>
 					</div>
 				</section>
 
 				<p class="cv-note mb-8 max-w-2xl text-sm leading-6 text-[#6a615a]">
-					Download CV saves a standalone HTML copy. Save as PDF opens the browser print dialog so
-					visitors can export a PDF.
+					The button above generates a PDF in your browser and downloads it directly. The full CV
+					stays readable on this page for a quick preview.
 				</p>
 
 				<article
@@ -465,6 +461,7 @@ const downloadPayload = JSON.stringify(cv).replaceAll("<", "\\u003c");
 				githubUrl: string;
 				email: string;
 				emailUrl: string;
+				phone: string;
 				summary: string;
 				experience: DownloadExperience[];
 				projects: DownloadProject[];
@@ -473,403 +470,366 @@ const downloadPayload = JSON.stringify(cv).replaceAll("<", "\\u003c");
 				strengths: string[];
 			};
 
+			type PdfFont = "F1" | "F2";
+			type PdfColor = "body" | "muted" | "accent";
+
+			type PdfLine = {
+				text: string;
+				size: number;
+				font: PdfFont;
+				color?: PdfColor;
+				gapBefore?: number;
+				indent?: number;
+				pageBreakBefore?: boolean;
+			};
+
 			const downloadButton = document.getElementById("download-cv");
-			const printButton = document.getElementById("print-cv");
 			const payloadElement = document.getElementById("cv-download-data");
 			const payload = payloadElement?.textContent
 				? (JSON.parse(payloadElement.textContent) as DownloadCv)
 				: null;
 
-			function escapeHtml(value: string) {
+			const PDF_PAGE_WIDTH = 595;
+			const PDF_PAGE_HEIGHT = 842;
+			const PDF_MARGIN_X = 48;
+			const PDF_TOP = 792;
+			const PDF_BOTTOM = 54;
+			const PDF_CONTENT_WIDTH = PDF_PAGE_WIDTH - PDF_MARGIN_X * 2;
+
+			function sanitizePdfText(value: string) {
 				return value
-					.replaceAll("&", "&amp;")
-					.replaceAll("<", "&lt;")
-					.replaceAll(">", "&gt;")
-					.replaceAll('"', "&quot;")
-					.replaceAll("'", "&#39;");
+					.normalize("NFKD")
+					.replace(/[^\x20-\x7E]/g, " ")
+					.replace(/\s+/g, " ")
+					.trim();
 			}
 
-			function renderList(items: string[]) {
-				return items.map((item) => `<li>${escapeHtml(item)}</li>`).join("");
+			function escapePdfText(value: string) {
+				return sanitizePdfText(value)
+					.replaceAll("\\", "\\\\")
+					.replaceAll("(", "\\(")
+					.replaceAll(")", "\\)");
 			}
 
-			function renderProjects(projects: DownloadProject[]) {
-				return projects
-					.map((project) => {
-						const impactBlock = project.impact?.length
-							? `
-								<div class="block">
-									<p class="eyebrow">Impact</p>
-									<ul>${renderList(project.impact)}</ul>
-								</div>
-							`
-							: "";
+			function wrapPdfText(text: string, size: number, indent = 0) {
+				const normalized = sanitizePdfText(text);
+				if (!normalized) return [];
 
-						const linkBlock = project.link
-							? `<p class="link"><a href="${escapeHtml(project.link)}">${escapeHtml(project.link)}</a></p>`
-							: "";
+				const maxChars = Math.max(26, Math.floor((PDF_CONTENT_WIDTH - indent) / (size * 0.52)));
+				const words = normalized.split(" ");
+				const lines: string[] = [];
+				let current = "";
 
-						return `
-							<section class="card">
-								<h3>${escapeHtml(project.name)}</h3>
-								<p class="subhead">${escapeHtml(project.tagline)}</p>
-								${linkBlock}
-								<ul>${renderList(project.points)}</ul>
-								<div class="block">
-									<p class="eyebrow">Tech</p>
-									<p class="stack">${escapeHtml(project.tech.join(", "))}</p>
-								</div>
-								${impactBlock}
-							</section>
-						`;
-					})
-					.join("");
-			}
+				for (const word of words) {
+					const next = current ? `${current} ${word}` : word;
 
-			function renderExperience(experience: DownloadExperience[]) {
-				return experience
-					.map((item) => {
-						const impactBlock = item.impact?.length
-							? `
-								<div class="impact">
-									<p class="eyebrow">Key impact</p>
-									<ul>${renderList(item.impact)}</ul>
-								</div>
-							`
-							: "";
+					if (next.length <= maxChars) {
+						current = next;
+						continue;
+					}
 
-						return `
-							<section class="timeline-item">
-								<div class="row">
-									<div>
-										<h3>${escapeHtml(item.role)}</h3>
-										<p class="subhead">${escapeHtml(item.company)}</p>
-									</div>
-									<p class="period">${escapeHtml(item.period)}</p>
-								</div>
-								<ul>${renderList(item.bullets)}</ul>
-								${impactBlock}
-							</section>
-						`;
-					})
-					.join("");
-			}
+					if (current) {
+						lines.push(current);
+						current = word;
+						continue;
+					}
 
-			function renderSkillGroups(groups: DownloadSkillGroup[]) {
-				return groups
-					.map(
-						(group) => `
-							<section class="skill-group">
-								<p class="eyebrow">${escapeHtml(group.label)}</p>
-								<p class="stack">${escapeHtml(group.items.join(", "))}</p>
-							</section>
-						`,
-					)
-					.join("");
-			}
+					let remaining = word;
 
-			function buildStandaloneHtml(data: DownloadCv) {
-				return `<!doctype html>
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<title>${escapeHtml(data.name)} - CV</title>
-		<style>
-			:root {
-				--paper: #f7f1e8;
-				--paper-dark: #efe6db;
-				--ink: #171410;
-				--muted: #665c54;
-				--accent: #b85f38;
-				--line: rgba(23, 20, 16, 0.1);
-			}
-			* { box-sizing: border-box; }
-			body {
-				margin: 0;
-				font-family: Roboto, "Helvetica Neue", Arial, sans-serif;
-				background:
-					radial-gradient(circle at top left, rgba(184, 95, 56, 0.08), transparent 28%),
-					linear-gradient(180deg, #fbf7f2 0%, #f2ebe2 100%);
-				color: var(--ink);
-				padding: 40px 18px;
-			}
-			.page {
-				max-width: 1080px;
-				margin: 0 auto;
-				background: var(--paper);
-				border: 1px solid var(--line);
-				border-radius: 28px;
-				overflow: hidden;
-				box-shadow: 0 30px 70px rgba(23, 20, 16, 0.12);
-			}
-			.top {
-				padding: 40px;
-				background: linear-gradient(135deg, #171410 0%, #2a231e 100%);
-				color: #f7f1e8;
-				display: grid;
-				gap: 24px;
-				grid-template-columns: 1.2fr 0.8fr;
-			}
-			.kicker,
-			.eyebrow,
-			.period {
-				font-family: "JetBrains Mono", "SFMono-Regular", Consolas, monospace;
-				font-size: 11px;
-				letter-spacing: 0.22em;
-				text-transform: uppercase;
-			}
-			.kicker { color: #d9c7b5; }
-			h1 {
-				margin: 14px 0 0;
-				font-size: clamp(2.4rem, 6vw, 4.5rem);
-				line-height: 0.98;
-			}
-			h2 {
-				margin: 0;
-				font-size: 15px;
-				line-height: 1.4;
-				color: #eadbcc;
-				font-weight: 500;
-			}
-			.quick-grid {
-				display: grid;
-				gap: 12px;
-				grid-template-columns: repeat(3, minmax(0, 1fr));
-				align-self: end;
-			}
-			.quick-card {
-				padding: 16px;
-				border: 1px solid rgba(255, 255, 255, 0.12);
-				border-radius: 18px;
-				background: rgba(255, 255, 255, 0.05);
-			}
-			.quick-card strong {
-				display: block;
-				margin-top: 10px;
-				font-size: 18px;
-			}
-			.content {
-				display: grid;
-				grid-template-columns: 0.82fr 1.18fr;
-			}
-			.sidebar {
-				padding: 34px 32px;
-				background: var(--paper-dark);
-				border-right: 1px solid var(--line);
-			}
-			.main {
-				padding: 34px 40px;
-			}
-			.section + .section {
-				margin-top: 34px;
-			}
-			.panel {
-				padding: 16px 18px;
-				border-radius: 18px;
-				border: 1px solid var(--line);
-				background: rgba(255, 255, 255, 0.62);
-			}
-			.panel + .panel {
-				margin-top: 12px;
-			}
-			.contact-label {
-				display: block;
-				margin-bottom: 6px;
-				font-size: 12px;
-				text-transform: uppercase;
-				letter-spacing: 0.16em;
-				color: var(--muted);
-			}
-			.contact-value,
-			.subhead,
-			.stack {
-				margin: 0;
-				color: var(--ink);
-				line-height: 1.7;
-			}
-			.subhead { color: var(--muted); }
-			.link a {
-				color: var(--accent);
-				text-decoration: none;
-			}
-			ul {
-				margin: 14px 0 0;
-				padding-left: 18px;
-			}
-			li + li {
-				margin-top: 10px;
-			}
-			.summary {
-				font-size: 18px;
-				line-height: 1.9;
-				color: #2f2924;
-				margin: 16px 0 0;
-			}
-			.timeline-item {
-				position: relative;
-				padding-left: 24px;
-				margin-top: 24px;
-			}
-			.timeline-item::before {
-				content: "";
-				position: absolute;
-				left: 0;
-				top: 6px;
-				width: 11px;
-				height: 11px;
-				border-radius: 999px;
-				background: var(--accent);
-				box-shadow: 0 0 0 6px rgba(184, 95, 56, 0.14);
-			}
-			.timeline-item::after {
-				content: "";
-				position: absolute;
-				left: 5px;
-				top: 24px;
-				bottom: -24px;
-				width: 1px;
-				background: rgba(23, 20, 16, 0.1);
-			}
-			.timeline-item:last-child::after {
-				display: none;
-			}
-			.row {
-				display: flex;
-				gap: 18px;
-				justify-content: space-between;
-				align-items: flex-start;
-			}
-			h3 {
-				margin: 0;
-				font-size: 28px;
-				line-height: 1.12;
-			}
-			.period { color: #8a7c70; }
-			.impact {
-				margin-top: 16px;
-				padding: 16px 18px;
-				border-radius: 18px;
-				border: 1px solid rgba(184, 95, 56, 0.18);
-				background: #fff7f1;
-			}
-			.card {
-				margin-top: 18px;
-				padding: 22px;
-				border-radius: 22px;
-				border: 1px solid var(--line);
-				background: rgba(255, 255, 255, 0.62);
-			}
-			.block + .block {
-				margin-top: 16px;
-			}
-			.skill-group + .skill-group {
-				margin-top: 18px;
-			}
-			@media (max-width: 900px) {
-				.top,
-				.content {
-					grid-template-columns: 1fr;
+					while (remaining.length > maxChars) {
+						lines.push(remaining.slice(0, maxChars));
+						remaining = remaining.slice(maxChars);
+					}
+
+					current = remaining;
 				}
-				.quick-grid {
-					grid-template-columns: 1fr;
-				}
-				.row {
-					flex-direction: column;
-				}
-			}
-			@media print {
-				body {
-					padding: 0;
-					background: #fff;
-				}
-				.page {
-					box-shadow: none;
-					border-radius: 0;
-					border: 0;
-				}
-			}
-		</style>
-	</head>
-	<body>
-		<main class="page">
-			<section class="top">
-				<div>
-					<p class="kicker">Curriculum Vitae</p>
-					<h1>${escapeHtml(data.name)}</h1>
-					<h2>${escapeHtml(data.headline)}</h2>
-				</div>
-				<div class="quick-grid">
-					<div class="quick-card">
-						<p class="eyebrow">Base</p>
-						<strong>${escapeHtml(data.location)}</strong>
-					</div>
-					<div class="quick-card">
-						<p class="eyebrow">Mode</p>
-						<strong>${escapeHtml(data.availability)}</strong>
-					</div>
-					<div class="quick-card">
-						<p class="eyebrow">Contact</p>
-						<strong>${escapeHtml(data.githubLabel)}</strong>
-					</div>
-				</div>
-			</section>
-			<section class="content">
-				<aside class="sidebar">
-					<section class="section">
-						<p class="eyebrow">Contact</p>
-						<div class="panel">
-							<span class="contact-label">Email</span>
-							<p class="contact-value">${escapeHtml(data.email)}</p>
-						</div>
-						<div class="panel">
-							<span class="contact-label">GitHub</span>
-							<p class="contact-value">${escapeHtml(data.githubUrl)}</p>
-						</div>
-					</section>
-					<section class="section">
-						<p class="eyebrow">Strengths</p>
-						<ul>${renderList(data.strengths)}</ul>
-					</section>
-					<section class="section">
-						<p class="eyebrow">Skills</p>
-						${renderSkillGroups(data.skills)}
-					</section>
-					<section class="section">
-						<p class="eyebrow">Education</p>
-						<ul>${renderList(data.education)}</ul>
-					</section>
-				</aside>
-				<section class="main">
-					<section class="section">
-						<p class="eyebrow">Summary</p>
-						<p class="summary">${escapeHtml(data.summary)}</p>
-					</section>
-					<section class="section">
-						<p class="eyebrow">Experience</p>
-						${renderExperience(data.experience)}
-					</section>
-					<section class="section">
-						<p class="eyebrow">Projects</p>
-						${renderProjects(data.projects)}
-					</section>
-				</section>
-			</section>
-		</main>
-	</body>
-</html>`;
+
+				if (current) lines.push(current);
+
+				return lines;
 			}
 
-			downloadButton?.addEventListener("click", () => {
-				if (!payload) return;
+			function addWrappedPdfText(lines: PdfLine[], text: string, options: Omit<PdfLine, "text">) {
+				const wrapped = wrapPdfText(text, options.size, options.indent ?? 0);
 
-				const html = buildStandaloneHtml(payload);
-				const blob = new Blob([html], { type: "text/html;charset=utf-8" });
+				wrapped.forEach((line, index) => {
+					lines.push({
+						...options,
+						text: line,
+						gapBefore: index === 0 ? options.gapBefore : 0,
+					});
+				});
+			}
+
+			function addPdfBullets(lines: PdfLine[], items: string[], gapBefore = 8) {
+				items.forEach((item, index) => {
+					addWrappedPdfText(lines, `- ${item}`, {
+						size: 10.5,
+						font: "F1",
+						color: "body",
+						indent: 12,
+						gapBefore: index === 0 ? gapBefore : 4,
+					});
+				});
+			}
+
+			function buildPdfLines(data: DownloadCv) {
+				const lines: PdfLine[] = [];
+
+				lines.push({ text: data.name, size: 24, font: "F2", color: "body" });
+				addWrappedPdfText(lines, data.headline, {
+					size: 13,
+					font: "F1",
+					color: "muted",
+					gapBefore: 6,
+				});
+				addWrappedPdfText(lines, `${data.location} | ${data.availability}`, {
+					size: 10.5,
+					font: "F1",
+					color: "muted",
+					gapBefore: 10,
+				});
+				addWrappedPdfText(lines, `${data.email} | ${data.phone} | ${data.githubUrl}`, {
+					size: 10.5,
+					font: "F1",
+					color: "muted",
+					gapBefore: 4,
+				});
+
+				lines.push({
+					text: "SUMMARY",
+					size: 11.5,
+					font: "F2",
+					color: "accent",
+					gapBefore: 24,
+				});
+				addWrappedPdfText(lines, data.summary, {
+					size: 11,
+					font: "F1",
+					color: "body",
+					gapBefore: 8,
+				});
+
+				lines.push({
+					text: "EXPERIENCE",
+					size: 11.5,
+					font: "F2",
+					color: "accent",
+					gapBefore: 22,
+				});
+				data.experience.forEach((item) => {
+					addWrappedPdfText(lines, `${item.role} - ${item.company}`, {
+						size: 11.5,
+						font: "F2",
+						color: "body",
+						gapBefore: 12,
+					});
+					addWrappedPdfText(lines, item.period, {
+						size: 10,
+						font: "F1",
+						color: "muted",
+						gapBefore: 3,
+					});
+					addPdfBullets(lines, item.bullets);
+
+					if (item.impact?.length) {
+						lines.push({
+							text: "Impact",
+							size: 10,
+							font: "F2",
+							color: "muted",
+							gapBefore: 8,
+							indent: 12,
+						});
+						addPdfBullets(lines, item.impact, 6);
+					}
+				});
+
+				lines.push({
+					text: "PROJECTS",
+					size: 11.5,
+					font: "F2",
+					color: "accent",
+					gapBefore: 22,
+				});
+				data.projects.forEach((project) => {
+					addWrappedPdfText(lines, `${project.name} - ${project.tagline}`, {
+						size: 11.5,
+						font: "F2",
+						color: "body",
+						gapBefore: 12,
+					});
+
+					if (project.link) {
+						addWrappedPdfText(lines, project.link, {
+							size: 10,
+							font: "F1",
+							color: "muted",
+							gapBefore: 3,
+						});
+					}
+
+					addPdfBullets(lines, project.points);
+					addWrappedPdfText(lines, `Tech: ${project.tech.join(", ")}`, {
+						size: 10.5,
+						font: "F1",
+						color: "muted",
+						gapBefore: 8,
+						indent: 12,
+					});
+
+					if (project.impact?.length) {
+						lines.push({
+							text: "Impact",
+							size: 10,
+							font: "F2",
+							color: "muted",
+							gapBefore: 8,
+							indent: 12,
+						});
+						addPdfBullets(lines, project.impact, 6);
+					}
+				});
+
+				lines.push({
+					text: "SKILLS",
+					size: 11.5,
+					font: "F2",
+					color: "accent",
+					gapBefore: 22,
+					pageBreakBefore: true,
+				});
+				data.skills.forEach((group) => {
+					addWrappedPdfText(lines, `${group.label}: ${group.items.join(", ")}`, {
+						size: 10.5,
+						font: "F1",
+						color: "body",
+						gapBefore: 8,
+					});
+				});
+
+				lines.push({
+					text: "EDUCATION",
+					size: 11.5,
+					font: "F2",
+					color: "accent",
+					gapBefore: 22,
+				});
+				addPdfBullets(lines, data.education, 8);
+
+				lines.push({
+					text: "ADDITIONAL STRENGTHS",
+					size: 11.5,
+					font: "F2",
+					color: "accent",
+					gapBefore: 22,
+				});
+				addPdfBullets(lines, data.strengths, 8);
+
+				return lines;
+			}
+
+			function renderPdfPages(lines: PdfLine[]) {
+				const colorMap: Record<PdfColor, string> = {
+					body: "0.09 0.08 0.06",
+					muted: "0.40 0.36 0.33",
+					accent: "0.72 0.37 0.22",
+				};
+				const pages: string[] = [];
+				let currentPage: string[] = [];
+				let y = PDF_TOP;
+
+				for (const line of lines) {
+					if (line.pageBreakBefore && currentPage.length) {
+						pages.push(currentPage.join("\n"));
+						currentPage = [];
+						y = PDF_TOP;
+					}
+
+					const gapBefore = line.gapBefore ?? 0;
+					const lineHeight = line.size * 1.45;
+
+					y -= gapBefore;
+
+					if (y - lineHeight < PDF_BOTTOM) {
+						pages.push(currentPage.join("\n"));
+						currentPage = [];
+						y = PDF_TOP;
+					}
+
+					const x = PDF_MARGIN_X + (line.indent ?? 0);
+					const color = colorMap[line.color ?? "body"];
+					currentPage.push(
+						`BT /${line.font} ${line.size} Tf ${color} rg 1 0 0 1 ${x.toFixed(2)} ${y.toFixed(2)} Tm (${escapePdfText(line.text)}) Tj ET`,
+					);
+
+					y -= lineHeight;
+				}
+
+				if (currentPage.length) {
+					pages.push(currentPage.join("\n"));
+				}
+
+				return pages;
+			}
+
+			function buildPdfDocument(data: DownloadCv) {
+				const pages = renderPdfPages(buildPdfLines(data));
+				const objects: string[] = [];
+				const addObject = (body: string) => {
+					objects.push(body);
+					return objects.length;
+				};
+
+				const pagesId = addObject("");
+				const regularFontId = addObject("<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica >>");
+				const boldFontId = addObject("<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica-Bold >>");
+				const pageIds: number[] = [];
+
+				for (const content of pages) {
+					const contentId = addObject(
+						`<< /Length ${content.length} >>\nstream\n${content}\nendstream`,
+					);
+					const pageId = addObject(
+						`<< /Type /Page /Parent ${pagesId} 0 R /MediaBox [0 0 ${PDF_PAGE_WIDTH} ${PDF_PAGE_HEIGHT}] /Resources << /Font << /F1 ${regularFontId} 0 R /F2 ${boldFontId} 0 R >> >> /Contents ${contentId} 0 R >>`,
+					);
+
+					pageIds.push(pageId);
+				}
+
+				objects[pagesId - 1] =
+					`<< /Type /Pages /Kids [${pageIds.map((id) => `${id} 0 R`).join(" ")}] /Count ${pageIds.length} >>`;
+				const catalogId = addObject(`<< /Type /Catalog /Pages ${pagesId} 0 R >>`);
+
+				let pdf = "%PDF-1.4\n";
+				const offsets = [0];
+
+				objects.forEach((objectBody, index) => {
+					offsets.push(pdf.length);
+					pdf += `${index + 1} 0 obj\n${objectBody}\nendobj\n`;
+				});
+
+				const xrefStart = pdf.length;
+				pdf += `xref\n0 ${objects.length + 1}\n`;
+				pdf += "0000000000 65535 f \n";
+
+				for (let index = 1; index < offsets.length; index += 1) {
+					pdf += `${String(offsets[index]).padStart(10, "0")} 00000 n \n`;
+				}
+
+				pdf += `trailer\n<< /Size ${objects.length + 1} /Root ${catalogId} 0 R >>\nstartxref\n${xrefStart}\n%%EOF`;
+
+				return pdf;
+			}
+
+			function downloadPdf(data: DownloadCv) {
+				const pdf = buildPdfDocument(data);
+				const blob = new Blob([pdf], { type: "application/pdf" });
 				const url = URL.createObjectURL(blob);
 				const link = document.createElement("a");
 
 				link.href = url;
-				link.download = "min-aung-thu-win-cv.html";
+				link.download = "min-aung-thu-win-cv.pdf";
 				document.body.append(link);
 				link.click();
 				link.remove();
@@ -877,10 +837,17 @@ const downloadPayload = JSON.stringify(cv).replaceAll("<", "\\u003c");
 				window.setTimeout(() => {
 					URL.revokeObjectURL(url);
 				}, 1000);
-			});
+			}
 
-			printButton?.addEventListener("click", () => {
-				window.print();
+			downloadButton?.addEventListener("click", () => {
+				if (!payload) return;
+
+				try {
+					downloadPdf(payload);
+				} catch (error) {
+					console.error("Failed to generate PDF, falling back to print.", error);
+					window.print();
+				}
 			});
 		</script>
 	</body>
