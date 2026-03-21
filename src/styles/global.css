@@ -8,7 +8,7 @@
 
 @plugin "./folioTheme.ts";
 /* @plugin "./catppuccinTheme.latte.ts"; */
-@plugin "./catppuccinTheme.macchiato.ts";
+/* @plugin "./catppuccinTheme.macchiato.ts"; */
 
 @theme {
 	--font-mono:
