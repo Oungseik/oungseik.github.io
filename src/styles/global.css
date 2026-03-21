@@ -6,7 +6,8 @@
 	themes: false;
 }
 
-@plugin "./catppuccinTheme.latte.ts";
+@plugin "./folioTheme.ts";
+/* @plugin "./catppuccinTheme.latte.ts"; */
 @plugin "./catppuccinTheme.macchiato.ts";
 
 @theme {
