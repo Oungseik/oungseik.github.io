@@ -3,12 +3,15 @@ import BaseHead from "../../components/BaseHead.astro";
 import Header from "../../components/Header.astro";
 import Footer from "../../components/Footer.astro";
 
-const pageTitle = "Download CV | Min Aung Thu Win";
+const siteUrl = new URL("/", Astro.site).toString();
+const pageUrl = new URL("/cv/", Astro.site).toString();
+const pageTitle = "Backend Engineer CV | Oung Seik Nyan (Min Aung Thu Win)";
 const pageDescription =
-	"Download a PDF copy of Min Aung Thu Win's CV, or review the full web version on this page.";
+	"Resume and CV of Oung Seik Nyan (Min Aung Thu Win), a senior backend engineer focused on automation platforms, distributed systems, and developer tooling.";
 
 const cv = {
 	name: "Min Aung Thu Win",
+	alternateName: "Oung Seik Nyan",
 	headline: "Senior Backend Engineer / Software Engineer",
 	location: "Myanmar",
 	availability: "Remote-ready",
@@ -148,12 +151,64 @@ const cv = {
 };
 
 const downloadPayload = JSON.stringify(cv).replaceAll("<", "\\u003c");
+const pageStructuredData = {
+	"@context": "https://schema.org",
+	"@graph": [
+		{
+			"@type": "WebSite",
+			"@id": `${siteUrl}#website`,
+			url: siteUrl,
+			name: "Oung Seik Nyan",
+			description: "Portfolio and resume site for Oung Seik Nyan.",
+			inLanguage: "en",
+		},
+		{
+			"@type": "Person",
+			"@id": `${siteUrl}#person`,
+			name: cv.name,
+			alternateName: cv.alternateName,
+			url: siteUrl,
+			jobTitle: cv.headline,
+			email: cv.email,
+			sameAs: [cv.githubUrl, "https://www.linkedin.com/in/aung-thu-win/"],
+			address: {
+				"@type": "PostalAddress",
+				addressCountry: cv.location,
+			},
+			knowsAbout: [
+				"Backend engineering",
+				"Distributed systems",
+				"Automation platforms",
+				"Developer tooling",
+				"Real-time systems",
+				"TypeScript",
+				"Python",
+			],
+		},
+		{
+			"@type": "ProfilePage",
+			"@id": `${pageUrl}#webpage`,
+			url: pageUrl,
+			name: pageTitle,
+			description: pageDescription,
+			isPartOf: { "@id": `${siteUrl}#website` },
+			about: { "@id": `${siteUrl}#person` },
+			mainEntity: { "@id": `${siteUrl}#person` },
+			inLanguage: "en",
+		},
+	],
+};
 ---
 
 <!doctype html>
 <html lang="en">
 	<head>
-		<BaseHead title={pageTitle} description={pageDescription} />
+		<BaseHead
+			title={pageTitle}
+			description={pageDescription}
+			ogType="profile"
+			structuredData={pageStructuredData}
+		/>
 	</head>
 	<body class="bg-base-100 text-base-content">
 		<div class="site-chrome">
@@ -176,12 +231,12 @@ const downloadPayload = JSON.stringify(cv).replaceAll("<", "\\u003c");
 						<h1
 							class="mt-3 text-4xl font-bold tracking-tight text-balance text-[#171410] md:text-5xl"
 						>
-							Download my CV in one click.
+							Backend engineer CV and resume.
 						</h1>
 						<p class="mt-4 text-base leading-7 text-[#5d544d] md:text-lg">
-							If you are visiting my website and need a copy of my CV, this page is here to make
-							that easy. You can download a PDF immediately, or review the full version below before
-							saving it.
+							This page contains the web version of the CV for Oung Seik Nyan, also known as Min
+							Aung Thu Win. You can review experience, projects, and backend engineering skills
+							here, then download a PDF copy from the same page.
 						</p>
 					</div>
 
@@ -196,8 +251,8 @@ const downloadPayload = JSON.stringify(cv).replaceAll("<", "\\u003c");
 				</section>
 
 				<p class="cv-note mb-8 max-w-2xl text-sm leading-6 text-[#6a615a]">
-					The button above generates a PDF in your browser and downloads it directly. The full CV
-					stays readable on this page for a quick preview.
+					The button above generates a PDF in your browser and downloads it directly. The full
+					resume and CV remain readable on this page for a quick review.
 				</p>
 
 				<article
@@ -216,6 +271,9 @@ const downloadPayload = JSON.stringify(cv).replaceAll("<", "\\u003c");
 									<h2 class="mt-4 text-4xl font-bold tracking-tight text-balance md:text-6xl">
 										{cv.name}
 									</h2>
+									<p class="mt-3 text-sm font-medium tracking-[0.22em] text-[#d9c7b5] uppercase">
+										Oung Seik Nyan
+									</p>
 									<p class="mt-4 max-w-2xl text-lg leading-8 text-[#eadbcc] md:text-xl">
 										{cv.headline}
 									</p>

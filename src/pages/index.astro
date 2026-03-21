@@ -3,9 +3,53 @@ import BaseHead from "../components/BaseHead.astro";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 
-const pageTitle = "Oung Seik Nyan | Backend & Systems Engineer";
+const siteUrl = new URL("/", Astro.site).toString();
+const pageTitle = "Oung Seik Nyan | Backend Engineer Portfolio";
 const pageDescription =
-	"Backend & Systems Engineer specializing in automation platforms, real-time systems, and developer infrastructure.";
+	"Backend engineer portfolio focused on automation platforms, distributed systems, real-time infrastructure, and developer tooling.";
+const pageStructuredData = {
+	"@context": "https://schema.org",
+	"@graph": [
+		{
+			"@type": "WebSite",
+			"@id": `${siteUrl}#website`,
+			url: siteUrl,
+			name: "Oung Seik Nyan",
+			description: pageDescription,
+			inLanguage: "en",
+		},
+		{
+			"@type": "Person",
+			"@id": `${siteUrl}#person`,
+			name: "Oung Seik Nyan",
+			alternateName: "Min Aung Thu Win",
+			url: siteUrl,
+			jobTitle: "Backend & Systems Engineer",
+			description: pageDescription,
+			email: "contact@oungseik.dev",
+			sameAs: ["https://github.com/oungseik", "https://www.linkedin.com/in/aung-thu-win/"],
+			knowsAbout: [
+				"Backend engineering",
+				"Automation platforms",
+				"Distributed systems",
+				"Real-time systems",
+				"Developer infrastructure",
+				"TypeScript",
+			],
+		},
+		{
+			"@type": "ProfilePage",
+			"@id": `${siteUrl}#webpage`,
+			url: siteUrl,
+			name: pageTitle,
+			description: pageDescription,
+			isPartOf: { "@id": `${siteUrl}#website` },
+			about: { "@id": `${siteUrl}#person` },
+			mainEntity: { "@id": `${siteUrl}#person` },
+			inLanguage: "en",
+		},
+	],
+};
 
 const selectedWork = [
 	{
@@ -117,7 +161,7 @@ const contactLinks = [
 <!doctype html>
 <html lang="en">
 	<head>
-		<BaseHead title={pageTitle} description={pageDescription} />
+		<BaseHead title={pageTitle} description={pageDescription} structuredData={pageStructuredData} />
 	</head>
 	<body class="bg-base-100 text-base-content">
 		<Header />
@@ -138,16 +182,20 @@ const contactLinks = [
 					class="relative mx-auto grid min-h-screen max-w-6xl gap-12 px-4 pt-32 pb-20 lg:grid-cols-[1.15fr_0.85fr] lg:items-center"
 				>
 					<div class="max-w-3xl">
-						<p class="text-info mb-6 font-mono text-xs tracking-[0.32em] uppercase">
+						<p class="text-info mb-3 font-mono text-xs tracking-[0.32em] uppercase">
+							Oung Seik Nyan
+						</p>
+						<p class="text-base-content/60 mb-6 font-mono text-xs tracking-[0.32em] uppercase">
 							Backend & Systems Engineer
 						</p>
 						<h1
 							class="max-w-4xl text-4xl font-bold tracking-tight text-balance md:text-6xl lg:text-7xl"
 						>
-							I build backend systems that automate real-world operations and scale.
+							Backend engineer building automation platforms and distributed systems.
 						</h1>
 						<p class="text-base-content/72 mt-6 max-w-2xl text-lg leading-8 md:text-xl">
-							Specializing in automation platforms, real-time systems, and developer infrastructure.
+							I’m Oung Seik Nyan, also known as Min Aung Thu Win, a backend and systems engineer
+							specializing in automation platforms, real-time systems, and developer infrastructure.
 							I focus on backend architecture that removes manual work and makes complex operations
 							reliable.
 						</p>
@@ -240,27 +288,27 @@ const contactLinks = [
 							</p>
 							<div class="mt-4 flex flex-wrap gap-2">
 								<span
-                    class="badge badge-neutral badge-lg border-base-300/70 bg-base-100/65 border px-4 py-4 text-base-content/76"
+									class="badge badge-neutral badge-lg border-base-300/70 bg-base-100/65 text-base-content/76 border px-4 py-4"
 								>
 									Distributed systems
 								</span>
 								<span
-                    class="badge badge-neutral badge-lg border-base-300/70 bg-base-100/65 border px-4 py-4 text-base-content/76"
+									class="badge badge-neutral badge-lg border-base-300/70 bg-base-100/65 text-base-content/76 border px-4 py-4"
 								>
 									Automation platforms
 								</span>
 								<span
-                    class="badge badge-neutral badge-lg border-base-300/70 bg-base-100/65 border px-4 py-4 text-base-content/76"
+									class="badge badge-neutral badge-lg border-base-300/70 bg-base-100/65 text-base-content/76 border px-4 py-4"
 								>
 									Real-time orchestration
 								</span>
 								<span
-                    class="badge badge-neutral badge-lg border-base-300/70 bg-base-100/65 border px-4 py-4 text-base-content/76"
+									class="badge badge-neutral badge-lg border-base-300/70 bg-base-100/65 text-base-content/76 border px-4 py-4"
 								>
 									Type-safe APIs
 								</span>
 								<span
-                    class="badge badge-neutral badge-lg border-base-300/70 bg-base-100/65 border px-4 py-4 text-base-content/76"
+									class="badge badge-neutral badge-lg border-base-300/70 bg-base-100/65 text-base-content/76 border px-4 py-4"
 								>
 									AI backends
 								</span>
@@ -275,7 +323,7 @@ const contactLinks = [
 					<div class="max-w-3xl">
 						<p class="text-info font-mono text-xs tracking-[0.28em] uppercase">Selected Work</p>
 						<h2 class="mt-4 text-3xl font-semibold tracking-tight md:text-5xl">
-							Projects centered on automation, orchestration, and backend reliability.
+							Selected backend engineering projects in automation, orchestration, and reliability.
 						</h2>
 						<p class="text-base-content/68 mt-4 text-lg leading-8">
 							These are the strongest examples of the kind of systems I want to keep building: real
@@ -533,6 +581,16 @@ const contactLinks = [
 									</span>
 									<span class="text-info text-xl">↗</span>
 								</a>
+								<a
+									href="/cv"
+									class="border-base-300/70 bg-base-200/45 hover:bg-base-200/70 flex items-center justify-between rounded-2xl border px-5 py-4 transition-colors"
+								>
+									<span>
+										<span class="text-base-content/70 block text-sm">Resume</span>
+										<span class="mt-1 block font-medium">View full CV and resume</span>
+									</span>
+									<span class="text-info text-xl">↗</span>
+								</a>
 							</div>
 						</div>
 					</div>
@@ -548,8 +606,8 @@ const contactLinks = [
 								Let’s talk about backend systems, automation, or platform engineering roles.
 							</h2>
 							<p class="text-base-content/68 mt-4 leading-8">
-								Email is best for opportunities. GitHub and LinkedIn are available if you want more
-								context on my work and background.
+								Email is best for backend engineering and platform opportunities. GitHub, LinkedIn,
+								and the full CV provide more context on my work and background.
 							</p>
 						</div>
 
