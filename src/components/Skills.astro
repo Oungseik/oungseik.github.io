@@ -1,0 +1,55 @@
+---
+const skillCategories = [
+	{
+		title: "Frontend",
+		skills: ["TypeScript", "JavaScript", "React", "Vue", "HTML/CSS", "Tailwind CSS"],
+	},
+	{
+		title: "Backend",
+		skills: ["Node.js", "Express", "Fastify", "NestJS", "PostgreSQL", "MongoDB", "Redis"],
+	},
+	{
+		title: "DevOps & Infrastructure",
+		skills: ["Docker", "Linux", "NixOS", "CI/CD", "AWS", "GitHub Actions"],
+	},
+	{
+		title: "Practices & Paradigms",
+		skills: [
+			"Functional Programming",
+			"Type Safety",
+			"Testing",
+			"System Design",
+			"Clean Architecture",
+		],
+	},
+];
+---
+
+<section class="bg-base-100 py-16 md:py-24" id="skills">
+	<div class="mx-auto max-w-5xl px-4">
+		<h2 class="section-title">Skills & Technologies</h2>
+		<p class="section-subtitle">
+			Technologies I work with and practices I follow to build quality software.
+		</p>
+
+		<div class="mt-12 grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4">
+			{
+				skillCategories.map((category, idx) => (
+					<div
+						class="bg-base-200/50 card-hover opacity-0-initial animate-fade-in-up rounded-xl p-6"
+						class:list={[`animation-delay-${(idx + 1) * 100}`]}
+					>
+						<h3 class="text-info mb-4 text-lg font-semibold">{category.title}</h3>
+						<div class="flex flex-wrap gap-2">
+							{category.skills.map((skill) => (
+								<span class="badge badge-outline badge-primary/30 text-xs font-medium">
+									{skill}
+								</span>
+							))}
+						</div>
+					</div>
+				))
+			}
+		</div>
+	</div>
+</section>

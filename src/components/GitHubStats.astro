@@ -1,0 +1,149 @@
+---
+import { getRepo, getMostUsedLanguages, type GitHubRepo, type LanguageStat } from "../lib/github";
+
+const username = "Oungseik";
+const featuredRepoNames = ["nix-config", "sveltekit-starter"];
+
+let repos: GitHubRepo[] = [];
+let languages: LanguageStat[] = [];
+
+try {
+	const [reposResult, languagesResult] = await Promise.all([
+		Promise.all(featuredRepoNames.map((name) => getRepo(username, name))),
+		getMostUsedLanguages(username),
+	]);
+	repos = reposResult;
+	languages = languagesResult;
+} catch (error) {
+	console.error("Failed to fetch GitHub data:", error);
+}
+
+const contributionChartUrl = `https://ghchart.rshah.org/${username}`;
+---
+
+<section class="bg-base-200/30 py-16 md:py-24" id="github">
+	<div class="mx-auto max-w-5xl px-4">
+		<h2 class="section-title">Open Source</h2>
+		<p class="section-subtitle">
+			Contributions to the developer community and my most-used technologies.
+		</p>
+
+		<div class="mt-12 grid grid-cols-1 gap-6 md:grid-cols-2">
+			{
+				repos.map((repo, idx) => (
+					<a
+						href={repo.html_url}
+						target="_blank"
+						rel="noopener noreferrer"
+						class="bg-base-200/50 card-hover opacity-0-initial animate-fade-in-up rounded-xl p-6"
+						class:list={[`animation-delay-${(idx + 1) * 100}`]}
+					>
+						<div class="mb-3 flex items-start justify-between">
+							<h3 class="text-info text-lg font-semibold">{repo.name}</h3>
+							<div class="flex items-center gap-3 text-sm">
+								{repo.stargazers_count > 0 && (
+									<span class="text-base-content/60 flex items-center gap-1">
+										<svg
+											xmlns="http://www.w3.org/2000/svg"
+											width="16"
+											height="16"
+											viewBox="0 0 24 24"
+											fill="currentColor"
+										>
+											<path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+										</svg>
+										{repo.stargazers_count}
+									</span>
+								)}
+								{repo.forks_count > 0 && (
+									<span class="text-base-content/60 flex items-center gap-1">
+										<svg
+											xmlns="http://www.w3.org/2000/svg"
+											width="16"
+											height="16"
+											viewBox="0 0 24 24"
+											fill="none"
+											stroke="currentColor"
+											stroke-width="2"
+											stroke-linecap="round"
+											stroke-linejoin="round"
+										>
+											<path d="M7 18V6a2 2 0 0 1 2-2h10" />
+											<path d="M5 12h10" />
+											<path d="M3 18a2 2 0 1 0 4 0a2 2 0 0 0-4 0" />
+											<path d="M17 18a2 2 0 1 0 4 0a2 2 0 0 0-4 0" />
+										</svg>
+										{repo.forks_count}
+									</span>
+								)}
+							</div>
+						</div>
+						<p class="text-base-content/70 mb-4 line-clamp-2 text-sm leading-relaxed">
+							{repo.description || "No description available"}
+						</p>
+						<div class="flex flex-wrap items-center gap-2">
+							{repo.language && (
+								<span class="flex items-center gap-1.5 text-xs">
+									<span
+										class="inline-block h-3 w-3 rounded-full"
+										style={`background-color: ${repo.language === "Nix" ? "#7e7eff" : repo.language === "TypeScript" ? "#3178c6" : "#6b7280"}`}
+									/>
+									<span class="text-base-content/60">{repo.language}</span>
+								</span>
+							)}
+							{repo.topics.slice(0, 3).map((topic) => (
+								<span class="badge badge-outline badge-primary/30 badge-xs">{topic}</span>
+							))}
+						</div>
+					</a>
+				))
+			}
+		</div>
+
+		{
+			languages.length > 0 && (
+				<div class="bg-base-200/50 mt-6 rounded-xl p-6">
+					<h3 class="text-info mb-4 text-lg font-semibold">Most Used Languages</h3>
+					<div class="space-y-3">
+						{languages.map((lang) => (
+							<div class="flex items-center gap-3">
+								<span class="w-24 flex-shrink-0 text-sm font-medium">{lang.name}</span>
+								<div class="bg-base-300/50 h-2.5 flex-1 overflow-hidden rounded-full">
+									<div
+										class="h-full rounded-full transition-all duration-500"
+										style={`width: ${lang.percentage}%; background-color: ${lang.color}`}
+									/>
+								</div>
+								<span class="text-base-content/60 w-12 flex-shrink-0 text-right text-xs">
+									{lang.percentage}%
+								</span>
+							</div>
+						))}
+					</div>
+				</div>
+			)
+		}
+
+		<div class="bg-base-200/50 mt-6 rounded-xl p-6">
+			<h3 class="text-info mb-4 text-lg font-semibold">Contribution Graph</h3>
+			<div class="overflow-x-auto">
+				<img
+					src={contributionChartUrl}
+					alt="GitHub contribution graph"
+					class="h-auto w-full min-w-[700px]"
+					loading="lazy"
+				/>
+			</div>
+			<div class="text-base-content/50 mt-3 text-center text-xs">
+				<a
+					href={`https://github.com/${username}`}
+					target="_blank"
+					rel="noopener noreferrer"
+					class="hover:text-info transition-colors"
+				>
+					View full profile on GitHub
+				</a>
+			</div>
+		</div>
+	</div>
+</section>

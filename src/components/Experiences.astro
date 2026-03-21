@@ -1,10 +1,62 @@
-<section class="bg-base-300 py-10 md:py-24">
-	<div class="px-4">
-		<h2
-			class="text-center text-2xl font-bold underline underline-offset-4 md:text-4xl"
-			id="projects"
-		>
-			EXPERIENCES
-		</h2>
+---
+const experiences = [
+	{
+		company: "Brillar",
+		role: "Senior Back-End Engineer",
+		period: "2023 - Present",
+		description:
+			"Leading backend development for cloud-based device testing platform. Architecting scalable microservices and ensuring type-safe, maintainable codebase.",
+		highlights: ["System Architecture", "Team Leadership", "Performance Optimization"],
+	},
+	{
+		company: "Brillar",
+		role: "Back-End Engineer",
+		period: "2021 - 2023",
+		description:
+			"Developed core backend services and APIs. Implemented CI/CD pipelines and improved development workflows.",
+		highlights: ["API Development", "Database Design", "DevOps"],
+	},
+	{
+		company: "Freelance",
+		role: "Full-Stack Developer",
+		period: "2020 - 2021",
+		description:
+			"Built web applications for various clients. Transitioned from data science background to web development.",
+		highlights: ["Client Relations", "Full-Stack Development", "Rapid Learning"],
+	},
+];
+---
+
+<section class="bg-base-200 py-16 md:py-24" id="experience">
+	<div class="mx-auto max-w-5xl px-4">
+		<h2 class="section-title">Experience</h2>
+		<p class="section-subtitle">
+			My professional journey and the roles that have shaped my expertise.
+		</p>
+
+		<div class="mt-12 grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+			{
+				experiences.map((exp, idx) => (
+					<div
+						class="bg-base-100 card-hover opacity-0-initial animate-fade-in-up rounded-xl p-6 shadow-sm"
+						class:list={[`animation-delay-${(idx + 1) * 100}`]}
+					>
+						<div class="mb-4 flex items-start justify-between">
+							<div>
+								<h3 class="text-info text-lg font-semibold">{exp.role}</h3>
+								<p class="text-base-content/70">{exp.company}</p>
+							</div>
+							<span class="badge badge-ghost text-xs">{exp.period}</span>
+						</div>
+						<p class="text-base-content/80 mb-4 text-sm leading-relaxed">{exp.description}</p>
+						<div class="flex flex-wrap gap-1.5">
+							{exp.highlights.map((h) => (
+								<span class="badge badge-outline badge-sm">{h}</span>
+							))}
+						</div>
+					</div>
+				))
+			}
+		</div>
 	</div>
 </section>

@@ -1,0 +1,78 @@
+---
+const testimonials = [
+	{
+		quote:
+			"Oung delivered exceptional work on our backend infrastructure. His attention to detail and commitment to type safety made our codebase significantly more maintainable.",
+		author: "John Doe",
+		role: "CTO",
+		company: "Tech Company",
+	},
+	{
+		quote:
+			"A rare combination of deep technical knowledge and practical problem-solving. Oung consistently found elegant solutions to complex challenges.",
+		author: "Jane Smith",
+		role: "Engineering Manager",
+		company: "Startup Inc",
+	},
+	{
+		quote:
+			"Working with Oung was a pleasure. He communicates clearly, meets deadlines, and produces high-quality code that's easy to understand and extend.",
+		author: "Alex Johnson",
+		role: "Product Owner",
+		company: "Digital Agency",
+	},
+];
+---
+
+<section class="bg-base-200 py-16 md:py-24" id="testimonials">
+	<div class="mx-auto max-w-6xl px-4">
+		<h2 class="section-title">What People Say</h2>
+		<p class="section-subtitle">
+			Feedback from colleagues and clients I've had the pleasure to work with.
+		</p>
+
+		<div
+			class="testimonial-scroll mt-12 flex cursor-grab snap-x snap-mandatory gap-6 overflow-x-auto pb-4"
+		>
+			{
+				testimonials.map((testimonial) => (
+					<div class="bg-base-100 flex w-[85%] flex-shrink-0 snap-start rounded-2xl p-8 shadow-sm transition-shadow hover:shadow-md md:w-[45%] lg:w-[30%]">
+						<div class="flex h-full flex-col">
+							<svg
+								class="text-primary/30 mb-4 h-8 w-8 flex-shrink-0"
+								xmlns="http://www.w3.org/2000/svg"
+								fill="currentColor"
+								viewBox="0 0 24 24"
+							>
+								<path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
+							</svg>
+							<blockquote class="text-base-content/80 flex-grow text-base leading-relaxed md:text-lg">
+								{testimonial.quote}
+							</blockquote>
+							<div class="border-base-300 mt-6 border-t pt-4">
+								<p class="text-info font-semibold">{testimonial.author}</p>
+								<p class="text-base-content/60 text-sm">
+									{testimonial.role} at {testimonial.company}
+								</p>
+							</div>
+						</div>
+					</div>
+				))
+			}
+		</div>
+
+		<p class="text-base-content/40 mt-4 text-center text-xs">← Swipe to see more →</p>
+	</div>
+</section>
+
+<style>
+	.testimonial-scroll {
+		scrollbar-width: none;
+		-ms-overflow-style: none;
+		scroll-behavior: smooth;
+		-webkit-overflow-scrolling: touch;
+	}
+	.testimonial-scroll::-webkit-scrollbar {
+		display: none;
+	}
+</style>

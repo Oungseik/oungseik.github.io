@@ -1,26 +1,37 @@
 ---
 const pathname = Astro.url.pathname;
+
+const navItems = [
+	{ href: "/", label: "Home" },
+	{ href: "/blog", label: "Blog" },
+	{ href: "/about", label: "About" },
+];
 ---
 
-<header class="bg-base-200/90 fixed top-0 left-0 z-10 w-full shadow-lg">
-	<nav class="flex items-center justify-center">
-		<ul id="nav-items" class="menu menu-horizontal rounded-lg md:text-lg">
-			<li>
-				<a href="/" class={pathname === "/" ? "text-info" : ""}>Home</a>
-			</li>
-			<!-- <li> -->
-			<!-- 	<a href="/projects" class={pathname === "/projects" ? "text-info" : ""}>Projects</a> -->
-			<!-- </li> -->
-			<li>
-				<a href="/blog" class={pathname === "/blog" || pathname === "/blog/" ? "text-info" : ""}
-					>Blog</a
-				>
-			</li>
-			<li>
-				<a href="/about" class={pathname === "/about" || pathname === "/about/" ? "text-info" : ""}
-					>About</a
-				>
-			</li>
-		</ul>
-	</nav>
+<header class="fixed top-0 left-0 z-50 w-full">
+	<div class="mx-auto max-w-5xl px-4">
+		<nav
+			class="bg-base-200/80 border-base-300/50 mt-4 rounded-full border px-2 py-2 shadow-lg backdrop-blur-md"
+		>
+			<ul class="flex items-center justify-center gap-1">
+				{
+					navItems.map((item) => (
+						<li>
+							<a
+								href={item.href}
+								class:list={[
+									"rounded-full px-4 py-2 text-sm font-medium transition-all duration-200",
+									pathname === item.href || (item.href !== "/" && pathname.startsWith(item.href))
+										? "bg-primary text-primary-content"
+										: "hover:bg-base-300/50 text-base-content",
+								]}
+							>
+								{item.label}
+							</a>
+						</li>
+					))
+				}
+			</ul>
+		</nav>
+	</div>
 </header>

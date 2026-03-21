@@ -4,6 +4,10 @@ import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 import Projects from "../components/Projects.astro";
 import Experiences from "../components/Experiences.astro";
+import Skills from "../components/Skills.astro";
+import Testimonials from "../components/Testimonials.astro";
+import Contact from "../components/Contact.astro";
+import GitHubStats from "../components/GitHubStats.astro";
 import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
 ---
 
@@ -11,59 +15,93 @@ import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
 <html lang="en">
 	<head>
 		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
-		<style>
-			[data-theme="dark"] .hero-section {
-				background-image: url("Hexagon.svg");
-			}
-			[data-theme="light"] .hero-section {
-				background-image: url("HexagonLight.svg");
-			}
-			@media (prefers-color-scheme: dark) {
-				.hero-section {
-					background-image: url("Hexagon.svg");
-				}
-			}
-			@media (prefers-color-scheme: light) {
-				.hero-section {
-					background-image: url("HexagonLight.svg");
-				}
-			}
-		</style>
 	</head>
-	<body>
+	<body class="bg-base-100">
 		<Header />
-		<section class="hero-section min-h-dvh bg-cover md:bg-center">
-			<main class="grid place-content-center px-4 pt-40 md:pt-48">
-				<div class="bg-base-100 rounded-lg p-8 px-2 text-center md:max-w-3xl md:px-12 md:py-12">
-					<div class="font-bold">
-						<h1 class="text-info text-3xl md:text-5xl">
-							Hi, I'm <span>Oung Seik Nyan</span>
-						</h1>
-						<h2 class="mt-2 text-lg md:text-2xl">
-							Full-Stack Developer | Problem Solver | Tech Enthusiast
-						</h2>
-					</div>
-					<div class="mt-6 md:mt-8">
-						<p>
-							I specialize in building robust, scalable web applications and delivering type-safe,
-							maintainable solutions with JavaScript/TypeScript ecosystem.
-						</p>
-						<p>
-							Passionate about functional programming, Linux systems, and system programming
-							languages. Let's collaborate to build something extraordinary!
-						</p>
 
-						<div class="mt-6 flex justify-center gap-4 md:mt-8 md:gap-8">
-							<a href="/#projects" class="btn btn-primary">Explore my work</a>
-							<a href="/#contact" class="btn btn-outline">Get in touch</a>
-						</div>
-					</div>
+		<section class="relative flex min-h-screen items-center justify-center overflow-hidden">
+			<div class="from-base-200 via-base-100 to-base-200 absolute inset-0 bg-gradient-to-br"></div>
+			<div
+				class="absolute inset-0 opacity-[0.02]"
+				style="background-image: url('Hexagon.svg'); background-size: 60px;"
+			>
+			</div>
+
+			<div class="relative z-10 px-4 py-32 text-center">
+				<div class="opacity-0-initial animate-fade-in-up">
+					<p class="text-primary mb-4 font-mono text-sm tracking-widest">HELLO, I'M</p>
 				</div>
-			</main>
+
+				<div class="opacity-0-initial animate-fade-in-up animation-delay-100">
+					<h1 class="mb-4 text-4xl font-bold tracking-tight md:text-6xl lg:text-7xl">
+						<span class="text-info">Oung</span> Seik Nyan
+					</h1>
+				</div>
+
+				<div class="opacity-0-initial animate-fade-in-up animation-delay-200">
+					<p class="text-base-content/70 mb-2 text-xl font-light md:text-2xl">
+						Full-Stack Developer
+					</p>
+				</div>
+
+				<div class="opacity-0-initial animate-fade-in-up animation-delay-300">
+					<p class="text-base-content/60 mx-auto mb-10 max-w-xl leading-relaxed">
+						Specializing in robust, scalable web applications with the JavaScript/TypeScript
+						ecosystem. Passionate about functional programming, Linux systems, and building
+						extraordinary software.
+					</p>
+				</div>
+
+				<div
+					class="opacity-0-initial animate-fade-in-up animation-delay-400 flex flex-col justify-center gap-4 sm:flex-row"
+				>
+					<a href="#projects" class="btn btn-primary btn-lg gap-2">
+						Explore My Work
+						<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24">
+							<path
+								fill="none"
+								stroke="currentColor"
+								stroke-linecap="round"
+								stroke-linejoin="round"
+								stroke-width="2"
+								d="m14 6l-6 6l6 6"></path>
+						</svg>
+					</a>
+					<a href="#contact" class="btn btn-outline btn-lg">Get in Touch</a>
+				</div>
+
+				<div class="opacity-0-initial animate-fade-in animation-delay-600 mt-16">
+					<a
+						href="#projects"
+						class="text-base-content/40 hover:text-info inline-flex flex-col items-center transition-colors"
+					>
+						<span class="mb-2 font-mono text-xs tracking-widest">SCROLL</span>
+						<svg
+							xmlns="http://www.w3.org/2000/svg"
+							width="24"
+							height="24"
+							viewBox="0 0 24 24"
+							class="animate-bounce"
+						>
+							<path
+								fill="none"
+								stroke="currentColor"
+								stroke-linecap="round"
+								stroke-linejoin="round"
+								stroke-width="2"
+								d="m16 10l-4 4l-4-4"></path>
+						</svg>
+					</a>
+				</div>
+			</div>
 		</section>
 
-		<Projects />
+		<!-- <Projects /> -->
 		<Experiences />
+		<Skills />
+		<GitHubStats />
+		<!-- <Testimonials /> -->
+		<Contact />
 		<Footer />
 	</body>
 </html>
