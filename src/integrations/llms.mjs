@@ -36,7 +36,7 @@ Oung Seik Nyan is a backend and systems engineer who focuses on automation platf
 
 ## Contact
 
-- Email: contact@oungseik.dev
+- Email: mhemaungthuwin@gmail.com
 - GitHub: https://github.com/oungseik
 - LinkedIn: https://www.linkedin.com/in/aung-thu-win/`,
 	},
