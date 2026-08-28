@@ -10,22 +10,22 @@
 		"format": "prettier -w ."
 	},
 	"dependencies": {
-		"@astrojs/mdx": "^5.0.2",
-		"@astrojs/rss": "^4.0.17",
-		"@astrojs/sitemap": "^3.7.1",
-		"@fontsource/jetbrains-mono": "^5.2.8",
-		"@fontsource/roboto": "^5.2.10",
-		"@tailwindcss/vite": "^4.2.2",
-		"astro": "^6.0.8",
-		"tailwindcss": "^4.2.2"
+		"@astrojs/mdx": "^7.0.8",
+		"@astrojs/rss": "^4.0.19",
+		"@astrojs/sitemap": "^3.7.3",
+		"@fontsource/jetbrains-mono": "^5.3.0",
+		"@fontsource/roboto": "^5.3.0",
+		"@tailwindcss/vite": "^4.3.3",
+		"astro": "^7.2.9",
+		"tailwindcss": "^4.3.3"
 	},
 	"devDependencies": {
 		"@catppuccin/daisyui": "^2.1.1",
-		"@tailwindcss/typography": "^0.5.19",
-		"daisyui": "^5.5.19",
-		"prettier": "^3.8.1",
+		"@tailwindcss/typography": "^0.5.20",
+		"daisyui": "^5.7.22",
+		"prettier": "^3.9.6",
 		"prettier-plugin-astro": "^0.14.1",
-		"prettier-plugin-tailwindcss": "^0.7.2",
-		"typescript": "^5.9.3"
+		"prettier-plugin-tailwindcss": "^0.8.1",
+		"typescript": "^7.0.2"
 	}
 }

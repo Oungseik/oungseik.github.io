@@ -1,6 +1,5 @@
 allowBuilds:
   esbuild: true
   sharp: true
-minimumReleaseAge: 10080
-minimumReleaseAgeIgnoreMissingTime: true
+minimumReleaseAge: 0
 resolutionMode: highest
