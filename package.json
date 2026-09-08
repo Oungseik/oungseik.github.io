@@ -1,6 +1,7 @@
 {
 	"name": "astro-latest",
 	"type": "module",
+	"packageManager": "pnpm@12.2.1",
 	"version": "0.0.1",
 	"scripts": {
 		"astro": "astro",
