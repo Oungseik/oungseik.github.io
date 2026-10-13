@@ -35,5 +35,8 @@
 	"imports": {
 		"#lib": "./src/lib/index.js",
 		"#lib/*": "./src/lib/*"
+	},
+	"dependencies": {
+		"pagedjs": "^0.4.3"
 	}
 }

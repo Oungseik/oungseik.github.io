@@ -48,6 +48,40 @@ npm run dev
 npm run dev -- --open
 ```
 
+## Resume preview and PDF
+
+Visit `/resume` to view the single-column A4 resume. Edit
+`src/routes/resume/+page.svelte` to replace the mock details, dates, links, and lorem
+content. Remove optional sections or skill rows that do not apply.
+
+The document uses a 210 × 297 mm page, 11 pt Arial body text with a 1.5 line height,
+and 18 mm internal margins. The name is 28 pt, section headings are 13.5 pt, and
+entry titles are 11.5 pt. Sections have 6 mm separation, with 2 mm between each
+section heading and its content and 4 mm between entries.
+Narrow screens scale the preview without changing line wrapping; printing restores
+the document to full size.
+
+Arial/Helvetica is intentional: `resume-guidelines.md` recommends familiar,
+readable typefaces. Keeping fonts local avoids a web-font loading dependency in
+the preview and PDF output.
+
+Paged.js 0.4.3 does not ship TypeScript declarations. `src/pagedjs.d.ts` describes
+the API used by the preview; keep it aligned when upgrading the paginator.
+Keyboard focus on a resume link is preserved when the source is replaced by the
+paginated preview.
+
+Use **Print / Save PDF** or the browser's print command with these settings:
+
+- Destination: **Save as PDF**
+- Paper size: **A4**, portrait
+- Scale: **100%**
+- Margins: **None** (the resume already includes its own margins)
+- Headers and footers: **Off**
+
+The preview toolbar, instructions, workspace, and paper shadow are not printed.
+The placeholder content fits one page. Substantial additions can create more printed
+pages; trim lower-priority content rather than reducing the font size.
+
 ## Linting and formatting
 
 ```sh
