@@ -137,4 +137,16 @@
 	.card-hover:hover {
 		@apply -translate-y-1 shadow-xl;
 	}
+
+	.link-row:last-child {
+		border-bottom-width: 0;
+	}
+
+	.link-row .link-arrow {
+		transition: transform 300ms ease-out;
+	}
+
+	.link-row:hover .link-arrow {
+		transform: translate(2px, -2px);
+	}
 }

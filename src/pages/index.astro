@@ -63,9 +63,8 @@ const selectedWork = [
 			"Implemented real-time monitoring, screen streaming, and access control.",
 		],
 		impact: [
-			"Reduced QA setup time from ~30 minutes to near zero.",
-			"Enabled parallel testing across 10+ devices.",
-			"Improved reliability for repeated mobile test execution.",
+			"Cut QA setup from ~30 minutes to near zero.",
+			"Runs tests in parallel across 10+ devices.",
 		],
 		tech: ["TypeScript", "Express", "MongoDB", "Socket.IO", "Appium", "ADB", "go-ios"],
 	},
@@ -73,17 +72,13 @@ const selectedWork = [
 		eyebrow: "02 / Shipping Automation Platform",
 		title: "Bookogsend",
 		summary:
-			"A shipping platform enabling e-commerce businesses to automate logistics across multiple providers.",
+			'A shipping platform enabling e-commerce businesses to automate logistics across multiple providers. <a href="https://bookogsend.dk/" class="text-info underline underline-offset-4">Live at bookogsend.dk</a>.',
 		points: [
 			"Integrated shipping providers including GLS and TeamJK.",
 			"Built a WooCommerce plugin for automatic order synchronization.",
 			"Designed reconciliation, inventory, and payment workflows for merchants.",
 		],
-		impact: [
-			"Reduced manual shipping operations for merchants.",
-			"Enabled scalable multi-provider logistics integration.",
-			"Improved day-to-day operational efficiency.",
-		],
+		impact: ["Automated the order-to-shipment workflow across GLS and TeamJK."],
 		tech: ["Next.js", "tRPC", "Prisma", "PostgreSQL", "Firebase Auth"],
 	},
 	{
@@ -95,10 +90,7 @@ const selectedWork = [
 			"Designed a FastAPI service for orchestration and query execution.",
 			"Generated charts and structured outputs for analytical workflows.",
 		],
-		impact: [
-			"Enabled non-technical users to analyze data without writing SQL.",
-			"Reduced the need for manual reporting queries.",
-		],
+		impact: ["Non-technical users query relational databases in plain language."],
 		tech: ["Python", "FastAPI", "LangChain"],
 	},
 ];
@@ -126,17 +118,12 @@ const focusAreas = [
 	},
 ];
 
-const experience = [
-	{ role: "Senior Backend Engineer", company: "Brillar" },
-	{ role: "Full-stack Developer", company: "Crossworks, Kiosk" },
-	{ role: "Frontend Developer", company: "Qualy Myanmar" },
-];
+/* ponytail: Bookogsend links to its live product (bookogsend.dk, from cv.md) — replace with per-project link field if more projects gain URLs */
 
-const principles = [
-	"Automation over manual processes",
-	"Developer experience and maintainability",
-	"Scalability through distributed design",
-	"Clear system boundaries and abstractions",
+const experience = [
+	{ role: "Full-stack Developer", company: "Crossworks, Kiosk", period: "Apr 2025 – Present" },
+	{ role: "Senior Backend Engineer", company: "Brillar", period: "Sep 2023 – Apr 2025" },
+	{ role: "Frontend Developer", company: "Qualy Myanmar", period: "Apr 2022 – Apr 2023" },
 ];
 
 const contactLinks = [
@@ -169,12 +156,7 @@ const contactLinks = [
 		<main>
 			<section class="border-base-300/60 relative overflow-hidden border-b">
 				<div
-					class="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(138,173,244,0.14),transparent_30%),radial-gradient(circle_at_bottom_right,rgba(145,215,227,0.12),transparent_24%)]"
-				>
-				</div>
-				<div
-					class="absolute inset-0 opacity-20"
-					style="background-image: linear-gradient(to right, rgba(147, 153, 178, 0.12) 1px, transparent 1px), linear-gradient(to bottom, rgba(147, 153, 178, 0.12) 1px, transparent 1px); background-size: 72px 72px;"
+					class="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(184,95,56,0.09),transparent_30%),radial-gradient(circle_at_bottom_right,rgba(109,135,153,0.10),transparent_26%)]"
 				>
 				</div>
 
@@ -193,27 +175,11 @@ const contactLinks = [
 						>
 							Backend engineer building automation platforms and distributed systems.
 						</h1>
-						<p class="text-base-content/72 mt-6 max-w-2xl text-lg leading-8 md:text-xl">
-							I’m Oung Seik Nyan, also known as Min Aung Thu Win, a backend and systems engineer
-							specializing in automation platforms, real-time systems, and developer infrastructure.
-							I focus on backend architecture that removes manual work and makes complex operations
-							reliable.
+						<p class="text-base-content/70 mt-6 max-w-2xl text-lg leading-8 md:text-xl">
+							I’m Oung — Min Aung Thu Win — a backend engineer working remotely from Mawlamyaine,
+							Myanmar. Four-plus years in the TypeScript ecosystem, mostly on the parts users
+							never see: device farms, shipping automation, and real-time services that stay up.
 						</p>
-
-						<ul class="text-base-content/80 mt-8 space-y-3 text-base md:text-lg">
-							<li class="flex gap-3">
-								<span class="text-info mt-1.5 h-2 w-2 flex-none rounded-full bg-current"></span>
-								<span>Built a distributed mobile device farm for Android and iOS testing.</span>
-							</li>
-							<li class="flex gap-3">
-								<span class="text-info mt-1.5 h-2 w-2 flex-none rounded-full bg-current"></span>
-								<span>Developed a shipping automation platform for e-commerce operations.</span>
-							</li>
-							<li class="flex gap-3">
-								<span class="text-info mt-1.5 h-2 w-2 flex-none rounded-full bg-current"></span>
-								<span>Designed real-time and AI-powered backend systems.</span>
-							</li>
-						</ul>
 
 						<div class="mt-10 flex flex-col gap-4 sm:flex-row">
 							<a href="#projects" class="btn btn-info btn-lg text-base-100 rounded-full px-8">
@@ -235,83 +201,25 @@ const contactLinks = [
 						<div
 							class="border-base-300/70 bg-base-200/55 shadow-base-300/10 rounded-[2rem] border p-6 shadow-2xl backdrop-blur"
 						>
-							<div class="flex items-center justify-between gap-4">
-								<div>
-									<p class="text-base-content/50 font-mono text-xs tracking-[0.28em] uppercase">
-										System Snapshot
-									</p>
-									<h2 class="mt-2 text-2xl font-semibold">What I optimize for</h2>
-								</div>
-								<span class="badge badge-info badge-outline h-auto px-3 py-3">Global-ready</span>
-							</div>
-
-							<div class="mt-6 grid gap-4 sm:grid-cols-2">
-								<div class="border-base-300/70 bg-base-100/60 rounded-2xl border p-4">
-									<p class="text-base-content/60 font-mono text-xs tracking-[0.22em] uppercase">
-										Automation
-									</p>
-									<p class="text-base-content/76 mt-3 text-sm leading-6">
-										Systems that remove setup friction and reduce repetitive operational work.
-									</p>
-								</div>
-								<div class="border-base-300/70 bg-base-100/60 rounded-2xl border p-4">
-									<p class="text-base-content/60 font-mono text-xs tracking-[0.22em] uppercase">
-										Real-time control
-									</p>
-									<p class="text-base-content/76 mt-3 text-sm leading-6">
-										Monitoring, orchestration, and event-driven communication across services.
-									</p>
-								</div>
-								<div class="border-base-300/70 bg-base-100/60 rounded-2xl border p-4">
-									<p class="text-base-content/60 font-mono text-xs tracking-[0.22em] uppercase">
-										Architecture
-									</p>
-									<p class="text-base-content/76 mt-3 text-sm leading-6">
-										Clear service boundaries, reliable workflows, and systems that scale without
-										excess complexity.
-									</p>
-								</div>
-								<div class="border-base-300/70 bg-base-100/60 rounded-2xl border p-4">
-									<p class="text-base-content/60 font-mono text-xs tracking-[0.22em] uppercase">
-										Developer tooling
-									</p>
-									<p class="text-base-content/76 mt-3 text-sm leading-6">
-										Internal platforms and workflows that improve team velocity and maintainability.
-									</p>
-								</div>
-							</div>
-						</div>
-
-						<div class="border-base-300/70 bg-base-200/45 rounded-[2rem] border p-6">
-							<p class="text-base-content/50 font-mono text-xs tracking-[0.28em] uppercase">
-								Current Focus
+							<p class="text-base-content/60 font-mono text-xs tracking-[0.28em] uppercase">Now</p>
+							<h2 class="mt-2 text-2xl font-semibold">Full-stack Developer at Crossworks</h2>
+							<p class="text-base-content/70 mt-3 text-sm leading-6">
+								Remote from Mawlamyaine, Myanmar · since Apr 2025. Previously Senior Backend Engineer
+								at Brillar.
 							</p>
-							<div class="mt-4 flex flex-wrap gap-2">
-								<span
-									class="badge badge-neutral badge-lg border-base-300/70 bg-base-100/65 text-base-content/76 border px-4 py-4"
-								>
-									Distributed systems
-								</span>
-								<span
-									class="badge badge-neutral badge-lg border-base-300/70 bg-base-100/65 text-base-content/76 border px-4 py-4"
-								>
-									Automation platforms
-								</span>
-								<span
-									class="badge badge-neutral badge-lg border-base-300/70 bg-base-100/65 text-base-content/76 border px-4 py-4"
-								>
-									Real-time orchestration
-								</span>
-								<span
-									class="badge badge-neutral badge-lg border-base-300/70 bg-base-100/65 text-base-content/76 border px-4 py-4"
-								>
-									Type-safe APIs
-								</span>
-								<span
-									class="badge badge-neutral badge-lg border-base-300/70 bg-base-100/65 text-base-content/76 border px-4 py-4"
-								>
-									AI backends
-								</span>
+
+							<div class="border-base-300/70 bg-base-100/60 mt-6 rounded-2xl border p-4">
+								<p class="text-base-content/60 font-mono text-xs tracking-[0.22em] uppercase">
+									GitHub · Oungseik
+								</p>
+								<img
+									src="https://ghchart.rshah.org/b85f38/Oungseik"
+									alt="GitHub contribution chart for Oungseik"
+									class="mt-3 w-full rounded-lg"
+									width="663"
+									height="104"
+									loading="lazy"
+								/>
 							</div>
 						</div>
 					</div>
@@ -325,9 +233,8 @@ const contactLinks = [
 						<h2 class="mt-4 text-3xl font-semibold tracking-tight md:text-5xl">
 							Selected backend engineering projects in automation, orchestration, and reliability.
 						</h2>
-						<p class="text-base-content/68 mt-4 text-lg leading-8">
-							These are the strongest examples of the kind of systems I want to keep building: real
-							products with operational constraints, measurable impact, and clear backend ownership.
+						<p class="text-base-content/70 mt-4 text-lg leading-8">
+							Three systems I designed, built, and kept running in production.
 						</p>
 					</div>
 
@@ -339,9 +246,9 @@ const contactLinks = [
 										{project.eyebrow}
 									</p>
 									<h3 class="mt-4 text-2xl font-semibold">{project.title}</h3>
-									<p class="text-base-content/72 mt-3 leading-7">{project.summary}</p>
+									<p class="text-base-content/70 mt-3 leading-7" set:html={project.summary} />
 
-									<ul class="text-base-content/78 mt-6 space-y-3 text-sm leading-6">
+									<ul class="text-base-content/70 mt-6 space-y-3 text-sm leading-6">
 										{project.points.map((point) => (
 											<li class="flex gap-3">
 												<span class="text-info mt-2 h-1.5 w-1.5 flex-none rounded-full bg-current" />
@@ -354,7 +261,7 @@ const contactLinks = [
 										<p class="text-base-content/60 font-mono text-xs tracking-[0.22em] uppercase">
 											Impact
 										</p>
-										<ul class="text-base-content/78 mt-3 space-y-2 text-sm leading-6">
+										<ul class="text-base-content/70 mt-3 space-y-2 text-sm leading-6">
 											{project.impact.map((item) => (
 												<li>{item}</li>
 											))}
@@ -375,85 +282,8 @@ const contactLinks = [
 				</div>
 			</section>
 
-			<section class="border-base-300/60 bg-base-200/35 border-y py-20 md:py-24">
-				<div class="mx-auto max-w-6xl px-4">
-					<div class="grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
-						<div class="max-w-xl">
-							<p class="text-info font-mono text-xs tracking-[0.28em] uppercase">
-								Architecture Signal
-							</p>
-							<h2 class="mt-4 text-3xl font-semibold tracking-tight md:text-4xl">
-								Test Canvas system flow
-							</h2>
-							<p class="text-base-content/68 mt-4 leading-8">
-								A simple diagram does a lot of work on a portfolio site. It signals system design
-								thinking, operational awareness, and the ability to communicate architecture
-								clearly.
-							</p>
-						</div>
 
-						<div class="border-base-300/70 bg-base-100/65 rounded-[2rem] border p-6">
-							<div
-								class="flex flex-col items-stretch gap-3 md:flex-row md:items-center md:justify-between"
-							>
-								<div
-									class="border-base-300/70 bg-base-200/55 rounded-2xl border px-4 py-5 text-center"
-								>
-									<p class="text-base-content/60 font-mono text-xs tracking-[0.2em] uppercase">
-										01
-									</p>
-									<p class="mt-2 font-medium">Devices</p>
-								</div>
-								<div class="text-info self-center text-xl font-semibold md:text-2xl">→</div>
-								<div
-									class="border-base-300/70 bg-base-200/55 rounded-2xl border px-4 py-5 text-center"
-								>
-									<p class="text-base-content/60 font-mono text-xs tracking-[0.2em] uppercase">
-										02
-									</p>
-									<p class="mt-2 font-medium">Server</p>
-								</div>
-								<div class="text-info self-center text-xl font-semibold md:text-2xl">→</div>
-								<div
-									class="border-base-300/70 bg-base-200/55 rounded-2xl border px-4 py-5 text-center"
-								>
-									<p class="text-base-content/60 font-mono text-xs tracking-[0.2em] uppercase">
-										03
-									</p>
-									<p class="mt-2 font-medium">Queue</p>
-								</div>
-							</div>
-							<div
-								class="mt-3 flex flex-col items-stretch gap-3 md:flex-row md:items-center md:justify-center"
-							>
-								<div
-									class="border-base-300/70 bg-base-200/55 rounded-2xl border px-4 py-5 text-center"
-								>
-									<p class="text-base-content/60 font-mono text-xs tracking-[0.2em] uppercase">
-										04
-									</p>
-									<p class="mt-2 font-medium">Workers</p>
-								</div>
-								<div class="text-info self-center text-xl font-semibold md:text-2xl">→</div>
-								<div
-									class="border-base-300/70 bg-base-200/55 rounded-2xl border px-4 py-5 text-center"
-								>
-									<p class="text-base-content/60 font-mono text-xs tracking-[0.2em] uppercase">
-										05
-									</p>
-									<p class="mt-2 font-medium">UI</p>
-								</div>
-							</div>
-							<p class="text-base-content/60 mt-5 text-sm leading-6">
-								Devices are coordinated by a central service, queued for execution, processed by
-								workers, and exposed through a monitoring interface for operators.
-							</p>
-						</div>
-					</div>
-				</div>
-			</section>
-
-			<section id="focus" class="py-20 md:py-28">
+			<section id="focus" class="border-base-300/60 bg-base-200/35 border-y py-20 md:py-24">
 				<div class="mx-auto max-w-6xl px-4">
 					<div class="grid gap-10 lg:grid-cols-[0.8fr_1.2fr]">
 						<div class="max-w-xl">
@@ -461,7 +291,7 @@ const contactLinks = [
 								Engineering Focus
 							</p>
 							<h2 class="mt-4 text-3xl font-semibold tracking-tight md:text-4xl">
-								The backend problems I’m best suited to solve.
+								What I work on.
 							</h2>
 						</div>
 
@@ -479,47 +309,14 @@ const contactLinks = [
 				</div>
 			</section>
 
-			<section class="border-base-300/60 bg-base-200/35 border-y py-20 md:py-24">
-				<div class="mx-auto grid max-w-6xl gap-10 px-4 lg:grid-cols-[0.85fr_1.15fr]">
-					<div class="max-w-xl">
-						<p class="text-info font-mono text-xs tracking-[0.28em] uppercase">How I Think</p>
-						<h2 class="mt-4 text-3xl font-semibold tracking-tight md:text-4xl">
-							I focus on systems that reduce manual work and improve scalability.
-						</h2>
-						<p class="text-base-content/68 mt-4 leading-8">
-							I enjoy turning operational complexity into simple, reliable workflows. The goal is
-							usually the same: fewer fragile steps, clearer abstractions, and a system teams can
-							operate with confidence.
-						</p>
-					</div>
-
-					<div class="grid gap-4 sm:grid-cols-2">
-						{
-							principles.map((principle, index) => (
-								<div class="border-base-300/70 bg-base-100/65 rounded-[1.5rem] border p-5">
-									<p class="text-base-content/60 font-mono text-xs tracking-[0.22em] uppercase">
-										0{index + 1}
-									</p>
-									<p class="mt-4 text-lg leading-7 font-medium">{principle}</p>
-								</div>
-							))
-						}
-					</div>
-				</div>
-			</section>
-
 			<section id="experience" class="py-20 md:py-24">
 				<div class="mx-auto max-w-6xl px-4">
 					<div class="grid gap-10 lg:grid-cols-[0.8fr_1.2fr]">
 						<div class="max-w-xl">
 							<p class="text-info font-mono text-xs tracking-[0.28em] uppercase">Experience</p>
 							<h2 class="mt-4 text-3xl font-semibold tracking-tight md:text-4xl">
-								A concise professional snapshot.
+								Where I’ve worked.
 							</h2>
-							<p class="text-base-content/68 mt-4 leading-8">
-								I keep the portfolio short here. The detailed history belongs in a resume; this page
-								should make the direction of my work immediately obvious.
-							</p>
 						</div>
 
 						<div class="border-base-300/70 bg-base-200/45 rounded-[2rem] border p-6">
@@ -529,8 +326,11 @@ const contactLinks = [
 										<div class="border-base-300/70 bg-base-100/60 flex flex-col gap-2 rounded-2xl border px-5 py-4 md:flex-row md:items-center md:justify-between">
 											<div>
 												<h3 class="text-lg font-semibold">{item.role}</h3>
-												<p class="text-base-content/65 text-sm">{item.company}</p>
+												<p class="text-base-content/60 text-sm">{item.company}</p>
 											</div>
+											<p class="text-base-content/60 font-mono text-xs tracking-[0.18em] uppercase">
+												{item.period}
+											</p>
 										</div>
 									))
 								}
@@ -545,52 +345,51 @@ const contactLinks = [
 					<div class="border-base-300/70 bg-base-100/65 rounded-[2rem] border p-8 md:p-10">
 						<div class="grid gap-8 lg:grid-cols-[1.15fr_0.85fr] lg:items-center">
 							<div class="max-w-2xl">
-								<p class="text-info font-mono text-xs tracking-[0.28em] uppercase">
-									GitHub / Building
-								</p>
+								<p class="font-mono text-xs tracking-[0.18em] uppercase text-[#55697a]">Elsewhere</p>
 								<h2 class="mt-4 text-3xl font-semibold tracking-tight md:text-4xl">
-									I actively build tools and explore system design, backend architecture, and
-									developer infrastructure.
+									Where the work lives.
 								</h2>
-								<p class="text-base-content/68 mt-4 leading-8">
-									GitHub is where I keep shipping. The blog is where I can make the architecture and
-									decision-making more visible.
+								<p class="text-base-content/70 mt-4 leading-8">
+									GitHub for the code, LinkedIn for the professional trail, the CV for everything in
+									order.
 								</p>
 							</div>
 
-							<div class="flex flex-col gap-3">
-								<a
-									href="https://github.com/oungseik"
-									target="_blank"
-									rel="noopener noreferrer"
-									class="border-base-300/70 bg-base-200/45 hover:bg-base-200/70 flex items-center justify-between rounded-2xl border px-5 py-4 transition-colors"
-								>
-									<span>
-										<span class="text-base-content/70 block text-sm">GitHub</span>
-										<span class="mt-1 block font-medium">github.com/oungseik</span>
-									</span>
-									<span class="text-info text-xl">↗</span>
-								</a>
-								<a
-									href="/blog"
-									class="border-base-300/70 bg-base-200/45 hover:bg-base-200/70 flex items-center justify-between rounded-2xl border px-5 py-4 transition-colors"
-								>
-									<span>
-										<span class="text-base-content/70 block text-sm">Writing</span>
-										<span class="mt-1 block font-medium">Read the blog</span>
-									</span>
-									<span class="text-info text-xl">↗</span>
-								</a>
-								<a
-									href="/cv"
-									class="border-base-300/70 bg-base-200/45 hover:bg-base-200/70 flex items-center justify-between rounded-2xl border px-5 py-4 transition-colors"
-								>
-									<span>
-										<span class="text-base-content/70 block text-sm">Resume</span>
-										<span class="mt-1 block font-medium">View full CV and resume</span>
-									</span>
-									<span class="text-info text-xl">↗</span>
-								</a>
+							<div class="flex flex-col">
+					<a
+						href="https://github.com/oungseik"
+						target="_blank"
+						rel="noopener noreferrer"
+						class="link-row flex items-center justify-between gap-4 border-base-300/50 -mx-2 rounded-lg border-b px-2 py-4 transition-colors hover:bg-base-200/40 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-base-content"
+					>
+						<span>
+							<span class="text-base-content/70 block text-sm">GitHub</span>
+							<span class="mt-1 block font-medium">github.com/oungseik</span>
+						</span>
+						<span class="link-arrow text-info text-xl">↗</span>
+					</a>
+					<a
+						href="https://www.linkedin.com/in/aung-thu-win/"
+						target="_blank"
+						rel="noopener noreferrer"
+						class="link-row flex items-center justify-between gap-4 border-base-300/50 -mx-2 rounded-lg border-b px-2 py-4 transition-colors hover:bg-base-200/40 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-base-content"
+					>
+						<span>
+							<span class="text-base-content/70 block text-sm">LinkedIn</span>
+							<span class="mt-1 block font-medium">linkedin.com/in/aung-thu-win</span>
+						</span>
+						<span class="link-arrow text-info text-xl">↗</span>
+					</a>
+					<a
+						href="/cv"
+						class="link-row flex items-center justify-between gap-4 border-base-300/50 -mx-2 rounded-lg border-b px-2 py-4 transition-colors hover:bg-base-200/40 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-base-content"
+					>
+						<span>
+							<span class="text-base-content/70 block text-sm">Resume</span>
+							<span class="mt-1 block font-medium">Full CV — history, education, skills</span>
+						</span>
+						<span class="link-arrow text-info text-xl">↗</span>
+					</a>
 							</div>
 						</div>
 					</div>
@@ -605,9 +404,8 @@ const contactLinks = [
 							<h2 class="mt-4 text-3xl font-semibold tracking-tight md:text-4xl">
 								Let’s talk about backend systems, automation, or platform engineering roles.
 							</h2>
-							<p class="text-base-content/68 mt-4 leading-8">
-								Email is best for backend engineering and platform opportunities. GitHub, LinkedIn,
-								and the full CV provide more context on my work and background.
+							<p class="text-base-content/70 mt-4 leading-8">
+								Email is best. GitHub, LinkedIn, and the CV have the rest.
 							</p>
 						</div>
 
