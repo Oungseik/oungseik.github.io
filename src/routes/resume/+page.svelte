@@ -101,8 +101,8 @@
 </script>
 
 <svelte:head>
-	<title>Resume — Lorem Ipsum</title>
-	<meta name="description" content="A clean, printable A4 software engineering resume template." />
+	<title>Resume — Aung Thu Win</title>
+	<meta name="description" content="Printable software engineering resume — Aung Thu Win." />
 </svelte:head>
 
 <main class="resume-preview">
@@ -142,26 +142,26 @@
 					<div class="resume-source">
 						<article class="resume" aria-labelledby="resume-name">
 							<header class="resume-header">
-								<h1 id="resume-name">Lorem Ipsum</h1>
-								<p class="professional-title">Software Engineer</p>
+								<h1 id="resume-name">Aung Thu Win</h1>
+								<p class="professional-title">[Target Role] · [Specialization]</p>
 								<p class="contact-line">
-									Lorem City, Country <span aria-hidden="true">·</span> +00 000 000 0000
+									Yangon, Myanmar <span aria-hidden="true">·</span>
+									<a href="tel:+959783668091">+95 9 783 668091</a>
 									<span aria-hidden="true">·</span>
-									<a href="mailto:lorem@example.com">lorem@example.com</a>
+									<a href="mailto:mhemaungthuwin@gmail.com">mhemaungthuwin@gmail.com</a>
 								</p>
 								<p class="contact-line">
-									LinkedIn: lorem <span aria-hidden="true">·</span> GitHub: lorem
-									<span aria-hidden="true">·</span>
-									<a href="https://example.com">Portfolio: example.com</a>
+									LinkedIn: [handle] <span aria-hidden="true">·</span>
+									GitHub: [handle] <span aria-hidden="true">·</span>
+									Portfolio: [domain]
 								</p>
 							</header>
 
 							<section class="resume-section" aria-labelledby="summary-heading">
 								<h2 id="summary-heading">Professional Summary</h2>
 								<p>
-									Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor
-									incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
-									exercitation.
+									[Role] focused on [domain / stack]. Experienced in [product / scope],
+									with strengths in [expertise] and a record of [strongest outcome].
 								</p>
 							</section>
 
@@ -170,43 +170,36 @@
 								<div class="entry">
 									<header class="entry-header">
 										<div class="entry-heading">
-											<h3>Software Engineer</h3>
-											<p class="entry-date">Jan 2024–Present</p>
+											<h3>[Current / Most Recent Role]</h3>
+											<p class="entry-date">[Mon YYYY]–Present</p>
 										</div>
-										<p class="entry-context">Lorem Company · Lorem City, Country</p>
+										<p class="entry-context">
+											[Company] <span aria-hidden="true">·</span> [Location / Remote]
+										</p>
+										<p>[Product / users served / scope you owned].</p>
 									</header>
 									<ul>
-										<li>
-											Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-											tempor incididunt ut labore et dolore magna aliqua.
-										</li>
-										<li>
-											Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-											aliquip ex ea commodo consequat.
-										</li>
-										<li>
-											Duis aute irure dolor in reprehenderit in voluptate velit esse cillum
-											dolore eu fugiat nulla pariatur.
-										</li>
+										<li>Built [system] using [approach], enabling [user / business outcome].</li>
+										<li>Improved [metric] from [baseline] to [result] by [specific change].</li>
+										<li>Led [initiative], delivering [capability / team outcome].</li>
 									</ul>
 								</div>
 								<div class="entry">
 									<header class="entry-header">
 										<div class="entry-heading">
-											<h3>Associate Software Engineer</h3>
-											<p class="entry-date">Jun 2022–Dec 2023</p>
+											<h3>[Previous Role]</h3>
+											<p class="entry-date">[Mon YYYY]–[Mon YYYY]</p>
 										</div>
-										<p class="entry-context">Ipsum Company · Remote</p>
+										<p class="entry-context">
+											[Previous Company] <span aria-hidden="true">·</span> [Location / Remote]
+										</p>
+										<p>[Product / users served / scope you owned].</p>
 									</header>
 									<ul>
 										<li>
-											Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio,
-											praesent libero, sed cursus ante dapibus diam.
+											Delivered [feature] with [technologies], helping [users] achieve [outcome].
 										</li>
-										<li>
-											Sed nisi, nulla quis sem at nibh elementum imperdiet. Duis sagittis ipsum,
-											praesent mauris, fusce nec tellus sed augue.
-										</li>
+										<li>Automated [process], saving [time / cost] or enabling [capability].</li>
 									</ul>
 								</div>
 							</section>
@@ -214,18 +207,10 @@
 							<section class="resume-section" aria-labelledby="skills-heading">
 								<h2 id="skills-heading">Technical Skills</h2>
 								<div class="skills">
-									<p>
-										<strong>Languages &amp; frameworks:</strong> Lorem, ipsum, dolor, sit amet,
-										consectetur.
-									</p>
-									<p>
-										<strong>Engineering &amp; delivery:</strong> Lorem ipsum, dolor sit amet,
-										adipiscing elit.
-									</p>
-									<p>
-										<strong>AI-assisted development:</strong> Lorem ipsum, dolor sit amet, sed do
-										eiusmod.
-									</p>
+									<p><strong>Languages:</strong> [Languages you use]</p>
+									<p><strong>Frameworks:</strong> [Frameworks / libraries]</p>
+									<p><strong>Data &amp; infrastructure:</strong> [Databases / cloud / containers]</p>
+									<p><strong>Testing &amp; delivery:</strong> [Testing tools / CI/CD / observability]</p>
 								</div>
 							</section>
 
@@ -234,23 +219,17 @@
 								<div class="entry">
 									<header class="entry-header">
 										<div class="entry-heading">
-											<h3>Lorem Project</h3>
-											<p class="entry-date">2024</p>
+											<h3>[Project Name]</h3>
+											<p class="entry-date">[Year / Date Range]</p>
 										</div>
 										<p class="entry-context">
-											Lorem, ipsum, dolor <span aria-hidden="true">·</span>
-											<a href="https://example.com">example.com</a>
+											[Key technologies] <span aria-hidden="true">·</span>
+											Code: [repository] <span aria-hidden="true">·</span> Demo: [domain]
 										</p>
 									</header>
 									<ul>
-										<li>
-											Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-											tempor.
-										</li>
-										<li>
-											Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-											aliquip.
-										</li>
+										<li>Built [product] for [audience / problem], owning [your contribution].</li>
+										<li>Solved [technical challenge] using [approach], achieving [result].</li>
 									</ul>
 								</div>
 							</section>
@@ -260,10 +239,12 @@
 								<div class="entry">
 									<header class="entry-header">
 										<div class="entry-heading">
-											<h3>Bachelor of Science in Computer Science</h3>
-											<p class="entry-date">2022</p>
+											<h3>[Degree / Qualification] in [Field]</h3>
+											<p class="entry-date">[Year / Expected Year]</p>
 										</div>
-										<p class="entry-context">Lorem University · Lorem City, Country</p>
+										<p class="entry-context">
+											[Institution] <span aria-hidden="true">·</span> [City, Country]
+										</p>
 									</header>
 								</div>
 							</section>
@@ -280,7 +261,10 @@
 	</div>
 
 	<div class="preview-notes">
-		<p>Placeholder content. Replace the details, dates, and links before sending.</p>
+		<p>
+			Edit the HTML in src/routes/resume/+page.svelte to fill in the bracketed prompts.
+			Duplicate entry elements to add more; remove unused entries and optional sections.
+		</p>
 		<p>Pages are added automatically as your content grows. The preview uses the printed layout.</p>
 		<p>Print settings: A4 · Scale 100% · Margins None · Headers and footers off</p>
 		<noscript>

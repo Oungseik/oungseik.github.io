@@ -50,9 +50,26 @@ npm run dev -- --open
 
 ## Resume preview and PDF
 
-Visit `/resume` to view the single-column A4 resume. Edit
-`src/routes/resume/+page.svelte` to replace the mock details, dates, links, and lorem
-content. Remove optional sections or skill rows that do not apply.
+Visit `/resume` to view the single-column A4 resume. Edit the HTML directly in
+`src/routes/resume/+page.svelte`; its script only handles preview and pagination.
+
+- Replace bracketed prompts with your details and truthful achievements.
+- Edit contact links directly in their `<a href="...">` elements. Use
+  `mailto:you@example.com` for email, `tel:+...` for phone, and full `https://`
+  URLs for LinkedIn, GitHub, your portfolio, and project links. Profile and
+  project placeholders are plain text; wrap them in links when you have a URL.
+- Keep experience and education newest first. Duplicate a `<div class="entry">`
+  to add a role, project, or qualification; remove entries you do not need.
+- Remove the corresponding `<section>` to omit an optional section. Delete
+  unused contact details and skill paragraphs directly from the markup.
+- Use each role's paragraph below the company for product, user, or ownership
+  context; remove it if unnecessary. Keep bullets focused on action, approach,
+  and outcome.
+- Use verified metrics only. If numbers are unavailable, describe a concrete
+  capability or result rather than inventing a measurement.
+
+The outline includes two roles, four skill groups, one project, and one education
+entry. It is edited in source, not through an in-browser form.
 
 The document uses a 210 × 297 mm page, 11 pt Arial body text with a 1.5 line height,
 and 18 mm internal margins. The name is 28 pt, section headings are 13.5 pt, and
