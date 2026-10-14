@@ -1,7 +1,7 @@
 {
-	"$schema": "./node_modules/oxlint/configuration_schema.json",
-	"categories": {
-		"correctness": "warn"
-	},
-	"ignorePatterns": [".svelte-kit/**", "build/**"]
+  "$schema": "./node_modules/oxlint/configuration_schema.json",
+  "categories": {
+    "correctness": "warn"
+  },
+  "ignorePatterns": [".svelte-kit/**", "build/**"]
 }

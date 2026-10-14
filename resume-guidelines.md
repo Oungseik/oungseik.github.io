@@ -21,13 +21,13 @@ Sources: [Harvard’s resume guide][harvard] and [MIT’s resume guidance][mit-r
 
 ### Core Information
 
-| Component | What to include |
-| --- | --- |
-| **Name and contact details** | Name, professional email, phone number, and optionally city/country. Add LinkedIn, a portfolio, or GitHub when relevant. A full street address is normally unnecessary. |
-| **Relevant experience** | Job title, organization, location or remote status, employment dates, and accomplishment-focused bullets. Internships, freelance work, research, volunteering, and leadership can also count. |
-| **Relevant skills** | Specific tools, technologies, methods, languages, or other demonstrable capabilities that matter to the role. |
-| **Education or training** | Institution, degree or qualification, subject, and completion or expected completion date. Include relevant training where appropriate. |
-| **Required professional credentials** | Licenses or certifications when they establish eligibility for the position. Include issuer and validity details where relevant. |
+| Component                             | What to include                                                                                                                                                                               |
+| ------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Name and contact details**          | Name, professional email, phone number, and optionally city/country. Add LinkedIn, a portfolio, or GitHub when relevant. A full street address is normally unnecessary.                       |
+| **Relevant experience**               | Job title, organization, location or remote status, employment dates, and accomplishment-focused bullets. Internships, freelance work, research, volunteering, and leadership can also count. |
+| **Relevant skills**                   | Specific tools, technologies, methods, languages, or other demonstrable capabilities that matter to the role.                                                                                 |
+| **Education or training**             | Institution, degree or qualification, subject, and completion or expected completion date. Include relevant training where appropriate.                                                       |
+| **Required professional credentials** | Licenses or certifications when they establish eligibility for the position. Include issuer and validity details where relevant.                                                              |
 
 ### Optional Sections
 
@@ -47,11 +47,11 @@ Source: [University of Pennsylvania’s resume guidance][penn].
 
 There is no universal section order. **Put the strongest, most relevant evidence first.** These are practical starting points:
 
-| Applicant situation | Recommended order |
-| --- | --- |
-| **Experienced professional** | Contact details → Optional summary → Professional experience → Skills → Education → Relevant additional sections |
-| **Student or recent graduate** | Contact details → Education → Relevant experience and/or projects → Skills → Relevant leadership, awards, or activities |
-| **Career changer** | Contact details → Targeted summary → Relevant skills → Relevant experience/projects → Additional employment → Education or training |
+| Applicant situation            | Recommended order                                                                                                                   |
+| ------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------- |
+| **Experienced professional**   | Contact details → Optional summary → Professional experience → Skills → Education → Relevant additional sections                    |
+| **Student or recent graduate** | Contact details → Education → Relevant experience and/or projects → Skills → Relevant leadership, awards, or activities             |
+| **Career changer**             | Contact details → Targeted summary → Relevant skills → Relevant experience/projects → Additional employment → Education or training |
 
 Adjustments that make sense:
 
@@ -70,18 +70,18 @@ Aim for restrained typography, clear hierarchy, and enough whitespace to disting
 
 These are recommended starting settings, not universal requirements:
 
-| Layout element | Recommended setting |
-| --- | --- |
-| **Page length** | Usually one page for students and early-career applicants; one or two pages for experienced professionals when the material is relevant |
-| **Columns** | One column for the application version |
-| **Body text** | 11–12 pt; avoid shrinking below 10 pt |
-| **Section headings** | Approximately 12–14 pt, bold |
-| **Name** | Approximately 20–24 pt |
-| **Margins** | 0.5–1 inch; start around 0.75 inch |
-| **Typeface** | One readable font, such as Arial, Calibri, or Helvetica |
-| **Alignment** | Left-aligned body text; consistent date placement |
-| **Color** | Dark, high-contrast text; an optional restrained accent |
-| **Descriptions** | Short bullets rather than dense paragraphs |
+| Layout element       | Recommended setting                                                                                                                     |
+| -------------------- | --------------------------------------------------------------------------------------------------------------------------------------- |
+| **Page length**      | Usually one page for students and early-career applicants; one or two pages for experienced professionals when the material is relevant |
+| **Columns**          | One column for the application version                                                                                                  |
+| **Body text**        | 11–12 pt; avoid shrinking below 10 pt                                                                                                   |
+| **Section headings** | Approximately 12–14 pt, bold                                                                                                            |
+| **Name**             | Approximately 20–24 pt                                                                                                                  |
+| **Margins**          | 0.5–1 inch; start around 0.75 inch                                                                                                      |
+| **Typeface**         | One readable font, such as Arial, Calibri, or Helvetica                                                                                 |
+| **Alignment**        | Left-aligned body text; consistent date placement                                                                                       |
+| **Color**            | Dark, high-contrast text; an optional restrained accent                                                                                 |
+| **Descriptions**     | Short bullets rather than dense paragraphs                                                                                              |
 
 MIT explicitly recommends **10–12 pt text, 0.5–1 inch margins, consistent formatting, and sufficient whitespace**. The larger name and heading sizes above are practical design recommendations rather than requirements from MIT.
 

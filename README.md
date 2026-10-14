@@ -54,10 +54,12 @@ Visit `/resume` to view the single-column A4 resume. Edit the HTML directly in
 `src/routes/resume/+page.svelte`; its script only handles preview and pagination.
 
 - Replace bracketed prompts with your details and truthful achievements.
+- Edit the role and specialization in `<p class="professional-title">` to match
+  the position you are applying for.
 - Edit contact links directly in their `<a href="...">` elements. Use
   `mailto:you@example.com` for email, `tel:+...` for phone, and full `https://`
-  URLs for LinkedIn, GitHub, your portfolio, and project links. Profile and
-  project placeholders are plain text; wrap them in links when you have a URL.
+  URLs for LinkedIn, GitHub, your portfolio, and project links. The profile links
+  are populated; project placeholders remain plain text until you add their URLs.
 - Keep experience and education newest first. Duplicate a `<div class="entry">`
   to add a role, project, or qualification; remove entries you do not need.
 - Remove the corresponding `<section>` to omit an optional section. Delete
@@ -114,6 +116,8 @@ TypeScript, and Svelte `<script>` blocks, not Svelte templates; keep running `pn
 The scaffold's empty `src/lib/index.ts` currently produces a `unicorn/no-empty-file` warning.
 
 Oxfmt preserves the project's tabs, single quotes, and omitted trailing commas.
+Svelte formatting is enabled with `"svelte": true` in `.oxfmtrc.json`; it requires
+this project's installed `svelte` package, but no separate Prettier dependency.
 Both tools respect `.gitignore` and explicitly exclude `.svelte-kit` and `build`.
 Oxfmt also skips lockfiles. `pnpm format` formats Markdown notes too; the existing
 `resume-guidelines.md` and `tech-industry-research.md` have not been reformatted during setup.

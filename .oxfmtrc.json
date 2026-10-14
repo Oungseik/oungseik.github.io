@@ -1,6 +1,7 @@
 {
-	"$schema": "./node_modules/oxfmt/configuration_schema.json",
-	"trailingComma": "none",
-	"sortPackageJson": false,
-	"ignorePatterns": [".svelte-kit/**", "build/**"]
+  "$schema": "./node_modules/oxfmt/configuration_schema.json",
+  "trailingComma": "none",
+  "sortPackageJson": false,
+  "svelte": true,
+  "ignorePatterns": [".svelte-kit/**", "build/**"]
 }

@@ -1,173 +1,173 @@
 @page {
-	size: A4 portrait;
-	margin: 18mm;
+  size: A4 portrait;
+  margin: 18mm;
 }
 
 .resume {
-	--resume-ink: #26323c;
-	--resume-secondary: #52616d;
-	--resume-accent: #23465c;
-	box-sizing: border-box;
-	color: var(--resume-ink);
-	font-family: Arial, Helvetica, sans-serif;
-	font-size: 11pt;
-	line-height: 1.5;
-	-webkit-print-color-adjust: exact;
-	print-color-adjust: exact;
+  --resume-ink: #26323c;
+  --resume-secondary: #52616d;
+  --resume-accent: #23465c;
+  box-sizing: border-box;
+  color: var(--resume-ink);
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 12pt;
+  line-height: 1.5;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
 }
 
 .resume p,
 .resume h1,
 .resume h2,
 .resume h3 {
-	margin: 0;
+  margin: 0;
 }
 
 .resume p {
-	orphans: 2;
-	widows: 2;
+  orphans: 2;
+  widows: 2;
 }
 
 .resume .resume-header {
-	margin-bottom: 6mm;
-	text-align: center;
-	break-inside: avoid;
+  margin-bottom: 6mm;
+  text-align: center;
+  break-inside: avoid;
 }
 
 .resume h1 {
-	color: var(--resume-accent);
-	font-size: 28pt;
-	font-weight: 700;
-	line-height: 1.12;
-	letter-spacing: -0.025em;
+  color: var(--resume-accent);
+  font-size: 28pt;
+  font-weight: 700;
+  line-height: 1.12;
+  letter-spacing: -0.025em;
 }
 
 .resume .professional-title {
-	margin-top: 1.5mm;
-	margin-bottom: 2.5mm;
-	color: var(--resume-secondary);
-	font-size: 13pt;
-	line-height: 1.35;
+  margin-top: 1.5mm;
+  margin-bottom: 2.5mm;
+  color: var(--resume-secondary);
+  font-size: 14pt;
+  line-height: 1.35;
 }
 
 .resume .contact-line {
-	color: var(--resume-secondary);
-	font-size: 10pt;
-	line-height: 1.5;
+  color: var(--resume-secondary);
+  font-size: 11pt;
+  line-height: 1.5;
 }
 
 .resume .contact-line span,
 .resume .entry-context span {
-	padding-inline: 1mm;
+  padding-inline: 1mm;
 }
 
 .resume a {
-	color: var(--resume-accent);
-	font-weight: 600;
-	text-decoration: none;
+  color: var(--resume-accent);
+  font-weight: 600;
+  text-decoration: none;
 }
 
 .resume a:hover {
-	background: #e8eff3;
+  background: #e8eff3;
 }
 
 .resume a:focus-visible {
-	outline: 2px solid var(--resume-accent);
-	outline-offset: 3px;
+  outline: 2px solid var(--resume-accent);
+  outline-offset: 3px;
 }
 
 .resume .resume-section + .resume-section {
-	margin-top: 6mm;
+  margin-top: 8mm;
 }
 
 .resume h2 {
-	margin-bottom: 2mm;
-	color: var(--resume-accent);
-	font-size: 13.5pt;
-	font-weight: 700;
-	line-height: 1.2;
-	break-after: avoid;
+  margin-bottom: 2mm;
+  color: var(--resume-accent);
+  font-size: 14.5pt;
+  font-weight: 700;
+  line-height: 1.2;
+  break-after: avoid;
 }
 
 .resume .entry + .entry {
-	margin-top: 4mm;
+  margin-top: 5mm;
 }
 
 .resume .entry-header {
-	break-inside: avoid;
-	break-after: avoid;
+  break-inside: avoid;
+  break-after: avoid;
 }
 
 .resume .entry-heading {
-	display: flex;
-	align-items: baseline;
-	justify-content: space-between;
-	gap: 6mm;
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 6mm;
 }
 
 .resume h3 {
-	min-width: 0;
-	font-size: 11.5pt;
-	font-weight: 700;
-	line-height: 1.35;
+  min-width: 0;
+  font-size: 12.5pt;
+  font-weight: 700;
+  line-height: 1.35;
 }
 
 .resume .entry-date {
-	flex-shrink: 0;
-	color: var(--resume-secondary);
-	font-size: 10pt;
-	line-height: 1.35;
-	font-variant-numeric: tabular-nums;
-	white-space: nowrap;
+  flex-shrink: 0;
+  color: var(--resume-secondary);
+  font-size: 11pt;
+  line-height: 1.35;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
 }
 
 .resume .entry-context {
-	margin-top: 1mm;
-	color: var(--resume-secondary);
-	font-size: 10.5pt;
+  margin-top: 1mm;
+  color: var(--resume-secondary);
+  font-size: 11.5pt;
 }
 
 .resume ul {
-	margin: 2mm 0 0;
-	padding-left: 4.5mm;
-	list-style: disc;
-	break-before: avoid;
+  margin: 2mm 0 0;
+  padding-left: 4.5mm;
+  list-style: disc;
+  break-before: avoid;
 }
 
 .resume li {
-	padding-left: 0.5mm;
-	break-inside: avoid;
-	orphans: 2;
-	widows: 2;
+  padding-left: 0.5mm;
+  break-inside: avoid;
+  orphans: 2;
+  widows: 2;
 }
 
 .resume li + li {
-	margin-top: 1.5mm;
+  margin-top: 1.5mm;
 }
 
 .resume li::marker {
-	color: var(--resume-secondary);
-	font-size: 0.85em;
+  color: var(--resume-secondary);
+  font-size: 0.85em;
 }
 
 .resume .skills p {
-	break-inside: avoid;
+  break-inside: avoid;
 }
 
 .resume .skills p + p {
-	margin-top: 1mm;
+  margin-top: 1mm;
 }
 
 .resume strong {
-	font-weight: 700;
+  font-weight: 700;
 }
 
 @media print {
-	.resume a:hover {
-		background: transparent;
-	}
+  .resume a:hover {
+    background: transparent;
+  }
 
-	.resume a:focus-visible {
-		outline: none;
-	}
+  .resume a:focus-visible {
+    outline: none;
+  }
 }
