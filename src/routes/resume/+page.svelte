@@ -228,13 +228,16 @@
                     <p class="entry-context">
                       Kiosk Thailand <span aria-hidden="true">·</span> Remote
                     </p>
-                    <p>[Product / users served / scope you owned].</p>
+                    <p>
+                      Contributed to DentCloud, developing a 3D tooth inspection tool for dentists.
+                    </p>
                   </header>
                   <ul>
                     <li>
-                      Delivered [feature] with [technologies], helping [users] achieve [outcome].
+                      Delivered 3D object inspector with ThreeJS and VueJS and integrated into
+                      DentCloud, helping dentists to be able to investigate the condition of teeth
+                      more accurately.
                     </li>
-                    <li>Automated [process], saving [time / cost] or enabling [capability].</li>
                   </ul>
                 </div>
 
@@ -248,9 +251,10 @@
                       Qualy Myanmar <span aria-hidden="true">·</span> Mawlamyine, Mon State, Myanmar
                     </p>
                     <p>
-                      Built and maintained websites for Japanese government organizations and clients
-                      including Gorilla Clinic and Royal Canin. Developed forms and user-friendly
-                      blog templates that enabled users to publish content independently.
+                      Built and maintained websites for Japanese government organizations and
+                      clients including Gorilla Clinic and Royal Canin. Developed forms and
+                      user-friendly blog templates that enabled users to publish content
+                      independently.
                     </p>
                   </header>
                   <ul>
