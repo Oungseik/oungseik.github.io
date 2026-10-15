@@ -287,15 +287,39 @@
 
               <section class="resume-section" aria-labelledby="projects-heading">
                 <h2 id="projects-heading">Projects</h2>
+
                 <div class="entry">
                   <header class="entry-header">
-                    <div class="entry-heading">
+                    <div class="entry-heading project-heading">
+                      <h3>Brif MCP</h3>
+                      <a class="project-url" href="https://www.getbrif.ai/">getbrif.ai</a>
+                      <p class="entry-date">August 2026 – Ongoing</p>
+                    </div>
+                    <p class="entry-context">TypeScript, NextJS, Mastra, Prisma</p>
+                  </header>
+                  <ul>
+                    <li>
+                      Contributed to an MCP-native due diligence platform for compliance teams and
+                      dealmakers, bringing counterparty research into ChatGPT and Claude.
+                    </li>
+                    <li>
+                      Worked on company and individual research workflows combining registry
+                      records, director and shareholder information, and local-language media into
+                      sourced reports for client onboarding and pre-deal checks.
+                    </li>
+                  </ul>
+                </div>
+
+                <div class="entry">
+                  <header class="entry-header">
+                    <div class="entry-heading project-heading">
                       <h3>[Project Name]</h3>
+                      <span class="project-url">[Project URL]</span>
                       <p class="entry-date">[Year / Date Range]</p>
                     </div>
                     <p class="entry-context">
                       [Key technologies] <span aria-hidden="true">·</span>
-                      Code: [repository] <span aria-hidden="true">·</span> Demo: [domain]
+                      Code: [repository]
                     </p>
                   </header>
                   <ul>

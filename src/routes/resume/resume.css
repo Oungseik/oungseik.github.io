@@ -105,6 +105,21 @@
   gap: 6mm;
 }
 
+.resume .project-heading {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.resume .project-url {
+  min-width: 0;
+  font-size: 10pt;
+  overflow-wrap: anywhere;
+}
+
+.resume .project-heading .entry-date {
+  text-align: right;
+}
+
 .resume h3 {
   min-width: 0;
   font-size: 11.5pt;
