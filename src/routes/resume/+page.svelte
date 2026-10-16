@@ -174,12 +174,30 @@
                     <p class="entry-context">
                       Crossworks Myanmar <span aria-hidden="true">·</span> Remote
                     </p>
-                    <p>[Product / users served / scope you owned].</p>
+                    <p>
+                      Worked on due diligence, shipping management, loan origination, and
+                      bank-statement extraction tools for Binary Stride.
+                    </p>
                   </header>
                   <ul>
-                    <li>Built [system] using [approach], enabling [user / business outcome].</li>
-                    <li>Improved [metric] from [baseline] to [result] by [specific change].</li>
-                    <li>Led [initiative], delivering [capability / team outcome].</li>
+                    <li>
+                      Built research, authentication, and credit-billing features for Brif, an
+                      MCP-based due diligence platform.
+                    </li>
+                    <li>
+                      Contributed to Bookogsend, a multi-carrier shipping platform supporting GLS
+                      and Team JK.
+                    </li>
+                    <li>
+                      Developed Go backend features for Good Money’s loan origination system,
+                      including automated application assignment, vehicle-inspection integrations,
+                      and decision-engine workflows.
+                    </li>
+                    <li>
+                      Researched and developed a bank-statement OCR prototype with estimated
+                      per-page API token costs roughly one-third of Lido’s published pricing,
+                      benchmarking extraction accuracy against Lido.
+                    </li>
                   </ul>
                 </div>
 
@@ -193,22 +211,28 @@
                       Brillar <span aria-hidden="true">·</span> Yangon, Myanmar / Remote
                     </p>
                     <p>
-                      Worked on an Android and iOS device farm and the SQL agent module for
+                      Worked on Test Canvas, an Android/iOS device farm, and the SQL agent module
+                      for
                       <a href="https://www.atenxion.ai/">Atenxion</a>.
                     </p>
                   </header>
                   <ul>
                     <li>
-                      Maintained Appium device nodes and Selenium Grid integration, helping the
-                      team run tests on up to 10 devices simultaneously on a single M2 Mac mini.
+                      Maintained Appium nodes and Selenium Grid integration for Test Canvas,
+                      enabling tests on up to 10 devices simultaneously on a single M2 Mac mini.
                     </li>
                     <li>
                       Replaced Redis messaging and Express REST endpoints with type-safe Socket.IO
-                      events for device status and controls, simplifying maintenance and integration.
+                      events for device status and controls.
                     </li>
                     <li>
                       Introduced tRPC and TanStack Query to simplify state management and
                       frontend–backend integration.
+                    </li>
+                    <li>
+                      Built Atenxion’s SQL agent with Python, FastAPI, and LangChain during a
+                      two-month project, enabling natural-language data queries and diagrams from
+                      the results.
                     </li>
                   </ul>
                 </div>
@@ -222,15 +246,11 @@
                     <p class="entry-context">
                       Kiosk Thailand <span aria-hidden="true">·</span> Remote
                     </p>
-                    <p>
-                      Contributed to DentCloud, developing a 3D tooth inspection tool for dentists.
-                    </p>
                   </header>
                   <ul>
                     <li>
-                      Delivered 3D object inspector with ThreeJS and VueJS and integrated into
-                      DentCloud, helping dentists to be able to investigate the condition of teeth
-                      more accurately.
+                      Built and integrated a Three.js and Vue.js 3D tooth inspection tool into
+                      DentCloud for dentists.
                     </li>
                   </ul>
                 </div>
@@ -244,18 +264,15 @@
                     <p class="entry-context">
                       Qualy Myanmar <span aria-hidden="true">·</span> Mawlamyine, Mon State, Myanmar
                     </p>
-                    <p>
-                      Built and maintained websites for Japanese government organizations and
-                      clients including Gorilla Clinic and Royal Canin. Developed forms and
-                      user-friendly blog templates that enabled users to publish content
-                      independently.
-                    </p>
                   </header>
                   <ul>
-                    <li>Delivered static sites and blogs with WordPress.</li>
                     <li>
-                      Introduce Git, Vite, Tailwind, AlpineJS and improve overall development time
-                      and developer experiences.
+                      Built WordPress websites, forms, and blog templates for Japanese government
+                      organizations, Gorilla Clinic, and Royal Canin, enabling independent content
+                      publishing.
+                    </li>
+                    <li>
+                      Introduced Git, Vite, Tailwind, and AlpineJS to improve development workflows.
                     </li>
                   </ul>
                 </div>
@@ -280,26 +297,31 @@
               </section>
 
               <section class="resume-section" aria-labelledby="projects-heading">
-                <h2 id="projects-heading">Projects</h2>
+                <h2 id="projects-heading">Selected Projects</h2>
 
                 <div class="entry">
                   <header class="entry-header">
                     <div class="entry-heading project-heading">
                       <h3>Brif MCP</h3>
                       <a class="project-url" href="https://www.getbrif.ai/">getbrif.ai</a>
-                      <p class="entry-date">August 2026 – Ongoing</p>
+                      <p class="entry-date">July 2026 – Ongoing</p>
                     </div>
                     <p class="entry-context">TypeScript, NextJS, Mastra, Prisma, ChatGPT, Gemini</p>
+                    <p class="entry-context">Binary Stride</p>
                   </header>
                   <ul>
                     <li>
-                      Contributed to an MCP-native due diligence platform for compliance teams and
-                      dealmakers, bringing counterparty research into ChatGPT and Claude.
+                      Built MCP tools and embedded interfaces for company and person due diligence,
+                      combining registry records with AI-assisted public-source research.
                     </li>
                     <li>
-                      Worked on company and individual research workflows combining registry
-                      records, director and shareholder information, and local-language media into
-                      sourced reports for client onboarding and pre-deal checks.
+                      Developed Mastra/Gemini research workflows with topic specialists, bounded
+                      search budgets, and partial-result handling.
+                    </li>
+                    <li>
+                      Implemented MCP OAuth/API-key authentication and Stripe credit billing,
+                      including concurrent credit reservations, automatic top-ups, and refund
+                      reconciliation.
                     </li>
                   </ul>
                 </div>
@@ -307,19 +329,23 @@
                 <div class="entry">
                   <header class="entry-header">
                     <div class="entry-heading project-heading">
-                      <h3>SQL Agent — Atenxion</h3>
-                      <a class="project-url" href="https://www.atenxion.ai/">atenxion.ai</a>
-                      <p class="entry-date">Two-month project</p>
+                      <h3>Bookogsend</h3>
+                      <a class="project-url" href="https://bookogsend.dk/">bookogsend.dk</a>
+                      <p class="entry-date">Ongoing</p>
                     </div>
-                    <p class="entry-context">Python, FastAPI, LangChain</p>
-                    <p class="entry-context">
-                      Brillar <span aria-hidden="true">·</span> Senior Backend Engineer
-                    </p>
+                    <p class="entry-context">TypeScript, Next.js, tRPC, Prisma, PHP, WooCommerce</p>
+                    <p class="entry-context">Binary Stride</p>
                   </header>
                   <ul>
                     <li>
-                      Built a SQL agent module that enabled users to query their data in natural
-                      language and generate diagrams from the results.
+                      Built WooCommerce order-to-shipment integration with pickup-point selection
+                      across classic and Blocks checkout, and hardened synchronization with
+                      duplicate checks and recovery for missed orders.
+                    </li>
+                    <li>
+                      Built carrier-charge reconciliation for GLS and Team JK, applying surcharge
+                      and commission rules to calculate adjustments and refunds and route approved
+                      charges into e-conomic invoices.
                     </li>
                   </ul>
                 </div>
