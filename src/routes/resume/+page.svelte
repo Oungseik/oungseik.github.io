@@ -480,7 +480,7 @@
     box-sizing: border-box;
     width: 210mm;
     min-height: 297mm;
-    padding: 18mm;
+    padding: 16mm;
     background: var(--paper);
     box-shadow: 0 8px 28px rgb(38 50 60 / 9%);
   }
@@ -546,7 +546,7 @@
 
   @page resume-source {
     size: A4 portrait;
-    margin: 18mm;
+    margin: 16mm;
   }
 
   @media print {
