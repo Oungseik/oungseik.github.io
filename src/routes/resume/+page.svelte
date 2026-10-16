@@ -186,62 +186,29 @@
                 <div class="entry">
                   <header class="entry-header">
                     <div class="entry-heading">
-                      <h3>Senior Backend Engineer</h3>
-                      <p class="entry-date">August 2024 – April 2025</p>
+                      <h3>Backend Engineer / Senior Backend Engineer</h3>
+                      <p class="entry-date">September 2023 – April 2025</p>
                     </div>
                     <p class="entry-context">
-                      Brillar <span aria-hidden="true">·</span> Remote
+                      Brillar <span aria-hidden="true">·</span> Yangon, Myanmar / Remote
                     </p>
                     <p>
-                      Improved the architecture and developer experience of an Android and iOS
-                      device farm and built a SQL agent module for Atenxion.
+                      Worked on an Android and iOS device farm and the SQL agent module for
+                      <a href="https://www.atenxion.ai/">Atenxion</a>.
                     </p>
                   </header>
                   <ul>
                     <li>
-                      Unified device status updates, touch and swipe commands, and node-to-server
-                      processing through Socket.IO, replacing Redis messaging and Express REST
-                      endpoints to simplify maintenance.
+                      Maintained Appium device nodes and Selenium Grid integration, helping the
+                      team run tests on up to 10 devices simultaneously on a single M2 Mac mini.
                     </li>
                     <li>
-                      Introduced TypeScript and shared event contracts to make Socket.IO
-                      communication type-safe, speeding up integration between the main server and
-                      device nodes.
+                      Replaced Redis messaging and Express REST endpoints with type-safe Socket.IO
+                      events for device status and controls, simplifying maintenance and integration.
                     </li>
                     <li>
-                      Introduced tRPC with TanStack Query to simplify application state management
-                      and reduce integration friction between backend and frontend teams.
-                    </li>
-                    <li>
-                      Built the SQL agent module for
-                      <a href="https://www.atenxion.ai/">Atenxion</a>, enabling users to query their
-                      data in natural language and generate diagrams from the results.
-                    </li>
-                  </ul>
-                </div>
-
-                <div class="entry">
-                  <header class="entry-header">
-                    <div class="entry-heading">
-                      <h3>Backend Developer</h3>
-                      <p class="entry-date">September 2023 - August 2024</p>
-                    </div>
-                    <p class="entry-context">
-                      Brillar <span aria-hidden="true">·</span> Yangon, Myanmar
-                    </p>
-                    <p>
-                      Android and iOS device farm built with Appium and Selenium Grid for parallel
-                      automated testing.
-                    </p>
-                  </header>
-                  <ul>
-                    <li>
-                      Maintained device nodes that launched Appium, registered each instance with
-                      the main server’s Selenium Grid, and reported device availability.
-                    </li>
-                    <li>
-                      Helped the team run automated tests on up to 10 devices simultaneously using a
-                      single M2 Mac mini.
+                      Introduced tRPC and TanStack Query to simplify state management and
+                      frontend–backend integration.
                     </li>
                   </ul>
                 </div>
