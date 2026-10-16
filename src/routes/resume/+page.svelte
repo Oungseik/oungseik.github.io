@@ -145,9 +145,11 @@
                   <a href="mailto:mhemaungthuwin@gmail.com">mhemaungthuwin@gmail.com</a>
                 </p>
                 <p class="contact-line">
-                  LinkedIn: <a href="https://www.linkedin.com/in/aung-thu-win/">aung-thu-win</a>
+                  LinkedIn: <a href="https://www.linkedin.com/in/aung-thu-win/"
+                    >linkedin.com/in/aung-thu-win</a
+                  >
                   <span aria-hidden="true">·</span>
-                  GitHub: <a href="https://github.com/oungseik">oungseik</a>
+                  GitHub: <a href="https://github.com/oungseik">github.com/oungseik</a>
                   <span aria-hidden="true">·</span>
                   Portfolio: <a href="https://oungseik.github.io">oungseik.github.io</a>
                 </p>
@@ -190,13 +192,31 @@
                     <p class="entry-context">
                       Brillar <span aria-hidden="true">·</span> Remote
                     </p>
-                    <p>[Product / users served / scope you owned].</p>
+                    <p>
+                      Improved the architecture and developer experience of an Android and iOS
+                      device farm and built a SQL agent module for Atenxion.
+                    </p>
                   </header>
                   <ul>
                     <li>
-                      Delivered [feature] with [technologies], helping [users] achieve [outcome].
+                      Unified device status updates, touch and swipe commands, and node-to-server
+                      processing through Socket.IO, replacing Redis messaging and Express REST
+                      endpoints to simplify maintenance.
                     </li>
-                    <li>Automated [process], saving [time / cost] or enabling [capability].</li>
+                    <li>
+                      Introduced TypeScript and shared event contracts to make Socket.IO
+                      communication type-safe, speeding up integration between the main server and
+                      device nodes.
+                    </li>
+                    <li>
+                      Introduced tRPC with TanStack Query to simplify application state management
+                      and reduce integration friction between backend and frontend teams.
+                    </li>
+                    <li>
+                      Built the SQL agent module for
+                      <a href="https://www.atenxion.ai/">Atenxion</a>, enabling users to query their
+                      data in natural language and generate diagrams from the results.
+                    </li>
                   </ul>
                 </div>
 
@@ -209,13 +229,20 @@
                     <p class="entry-context">
                       Brillar <span aria-hidden="true">·</span> Yangon, Myanmar
                     </p>
-                    <p>[Product / users served / scope you owned].</p>
+                    <p>
+                      Android and iOS device farm built with Appium and Selenium Grid for parallel
+                      automated testing.
+                    </p>
                   </header>
                   <ul>
                     <li>
-                      Delivered [feature] with [technologies], helping [users] achieve [outcome].
+                      Maintained device nodes that launched Appium, registered each instance with
+                      the main server’s Selenium Grid, and reported device availability.
                     </li>
-                    <li>Automated [process], saving [time / cost] or enabling [capability].</li>
+                    <li>
+                      Helped the team run automated tests on up to 10 devices simultaneously using a
+                      single M2 Mac mini.
+                    </li>
                   </ul>
                 </div>
 
@@ -295,7 +322,7 @@
                       <a class="project-url" href="https://www.getbrif.ai/">getbrif.ai</a>
                       <p class="entry-date">August 2026 – Ongoing</p>
                     </div>
-                    <p class="entry-context">TypeScript, NextJS, Mastra, Prisma</p>
+                    <p class="entry-context">TypeScript, NextJS, Mastra, Prisma, ChatGPT, Gemini</p>
                   </header>
                   <ul>
                     <li>
@@ -313,18 +340,20 @@
                 <div class="entry">
                   <header class="entry-header">
                     <div class="entry-heading project-heading">
-                      <h3>[Project Name]</h3>
-                      <span class="project-url">[Project URL]</span>
-                      <p class="entry-date">[Year / Date Range]</p>
+                      <h3>SQL Agent — Atenxion</h3>
+                      <a class="project-url" href="https://www.atenxion.ai/">atenxion.ai</a>
+                      <p class="entry-date">Two-month project</p>
                     </div>
+                    <p class="entry-context">Python, FastAPI, LangChain</p>
                     <p class="entry-context">
-                      [Key technologies] <span aria-hidden="true">·</span>
-                      Code: [repository]
+                      Brillar <span aria-hidden="true">·</span> Senior Backend Engineer
                     </p>
                   </header>
                   <ul>
-                    <li>Built [product] for [audience / problem], owning [your contribution].</li>
-                    <li>Solved [technical challenge] using [approach], achieving [result].</li>
+                    <li>
+                      Built a SQL agent module that enabled users to query their data in natural
+                      language and generate diagrams from the results.
+                    </li>
                   </ul>
                 </div>
               </section>
