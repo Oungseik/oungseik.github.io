@@ -158,8 +158,10 @@
               <section class="resume-section" aria-labelledby="summary-heading">
                 <h2 id="summary-heading">Professional Summary</h2>
                 <p>
-                  Software Engineer focused on [domain / stack]. Experienced in [product / scope],
-                  with strengths in [expertise] and a record of [strongest outcome].
+                  Self-taught full-stack software engineer with a B.Sc. in Mathematics and a
+                  commitment to continuous learning. Builds web applications and backend services
+                  with TypeScript and Go, with hands-on experience developing SQL agents, MCP tools,
+                  and AI-powered research workflows.
                 </p>
               </section>
 
