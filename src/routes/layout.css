@@ -3,6 +3,14 @@
 @plugin '@tailwindcss/typography';
 
 @media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  html:active-view-transition {
+    scroll-behavior: auto;
+  }
+
   ::view-transition-group(root) {
     animation-duration: 180ms;
     animation-timing-function: ease-out;
