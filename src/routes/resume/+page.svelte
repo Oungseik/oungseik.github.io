@@ -104,20 +104,6 @@
 </svelte:head>
 
 <main class="resume-preview">
-  <div class="preview-toolbar">
-    <div>
-      <p class="preview-title">Resume preview</p>
-      <p class="preview-size" aria-live="polite">
-        A4 · 210 × 297 mm{pageCount > 0
-          ? ` · ${pageCount} ${pageCount === 1 ? "page" : "pages"}`
-          : ""}
-      </p>
-    </div>
-    <button type="button" disabled={previewStatus === "loading"} onclick={() => window.print()}>
-      Print / Save PDF
-    </button>
-  </div>
-
   {#if previewStatus === "error"}
     <p class="preview-error" role="status">
       The paginated preview could not load. You can still print the resume with the browser’s print
@@ -374,18 +360,6 @@
       </div>
     </div>
   </div>
-
-  <div class="preview-notes">
-    <p>
-      Edit the HTML in src/routes/resume/+page.svelte to fill in the bracketed prompts. Duplicate
-      entry elements to add more; remove unused entries and optional sections.
-    </p>
-    <p>Pages are added automatically as your content grows. The preview uses the printed layout.</p>
-    <p>Print settings: A4 · Scale 100% · Margins None · Headers and footers off</p>
-    <noscript>
-      <p>Use the browser’s print command to export the resume without JavaScript.</p>
-    </noscript>
-  </div>
 </main>
 
 <style>
@@ -401,64 +375,6 @@
     color: var(--ink);
     font-family: Arial, Helvetica, sans-serif;
     color-scheme: light;
-  }
-
-  .preview-toolbar {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 16px;
-    max-width: 210mm;
-    margin: 0 auto 24px;
-  }
-
-  .preview-title {
-    margin: 0;
-    font-size: 14px;
-    font-weight: 700;
-    line-height: 1.4;
-  }
-
-  .preview-size {
-    margin: 4px 0 0;
-    color: var(--secondary-ink);
-    font-size: 12px;
-    line-height: 1.5;
-  }
-
-  button {
-    flex-shrink: 0;
-    min-height: 44px;
-    padding: 10px 18px;
-    border: 1px solid var(--accent);
-    border-radius: 6px;
-    background: var(--accent);
-    color: var(--paper);
-    font-size: 14px;
-    font-weight: 600;
-    line-height: 1.4;
-    white-space: nowrap;
-    cursor: pointer;
-    transition: background-color 140ms ease-out;
-  }
-
-  button:hover:not(:disabled) {
-    background: var(--ink);
-  }
-
-  button:active:not(:disabled) {
-    background: var(--secondary-ink);
-  }
-
-  button:disabled {
-    background: var(--secondary-ink);
-    border-color: var(--secondary-ink);
-    cursor: wait;
-  }
-
-  button:focus-visible {
-    outline: 2px solid var(--accent);
-    outline-offset: 4px;
   }
 
   .preview-stage {
@@ -498,25 +414,8 @@
     box-shadow: 0 8px 28px rgb(38 50 60 / 9%);
   }
 
-  .preview-notes,
-  .preview-error {
-    max-width: 210mm;
-    margin: 24px auto 0;
-    color: var(--secondary-ink);
-    font-size: 12px;
-    line-height: 1.6;
-  }
-
   .preview-error {
     margin-bottom: 24px;
-  }
-
-  .preview-notes p {
-    margin: 0;
-  }
-
-  .preview-notes p + p {
-    margin-top: 4px;
   }
 
   ::selection {
@@ -527,17 +426,6 @@
   @media screen and (max-width: 480px) {
     .resume-preview {
       padding: 20px 16px;
-    }
-
-    .preview-toolbar {
-      gap: 12px;
-      margin-bottom: 16px;
-    }
-  }
-
-  @media (prefers-reduced-motion: reduce) {
-    button {
-      transition: none;
     }
   }
 
@@ -568,8 +456,6 @@
       background: var(--paper);
     }
 
-    .preview-toolbar,
-    .preview-notes,
     .preview-error {
       display: none;
     }
