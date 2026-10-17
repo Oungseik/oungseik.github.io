@@ -3,9 +3,35 @@ import { readFileSync } from "node:fs";
 import test from "node:test";
 
 // Run after pnpm build: these checks cover the files served by static hosting.
-const pages = ["/", "/projects/brif-mcp/", "/projects/bookogsend/", "/projects/test-canvas/", "/resume/"];
+const pages = [
+  "/",
+  "/projects/brif-mcp/",
+  "/projects/bookogsend/",
+  "/projects/test-canvas/",
+  "/resume/"
+];
 const htmlAt = (path) =>
   readFileSync(new URL(`../build${path.replace(/\/?$/, "/")}index.html`, import.meta.url), "utf8");
+
+test("every page declares its canonical URL", () => {
+  for (const path of pages) {
+    const canonicals = [
+      ...htmlAt(path).matchAll(/<link\b[^>]*\brel="canonical"[^>]*\bhref="([^"]+)"/g)
+    ];
+    assert.deepEqual(
+      canonicals.map(([, href]) => href),
+      [`https://oungseik.github.io${path}`]
+    );
+  }
+});
+
+test("sitemap lists all canonical pages and is advertised to crawlers", () => {
+  const sitemap = readFileSync(new URL("../build/sitemap.xml", import.meta.url), "utf8");
+  const urls = [...sitemap.matchAll(/<loc>([^<]+)<\/loc>/g)].map(([, url]) => url);
+  assert.deepEqual(urls.sort(), pages.map((path) => `https://oungseik.github.io${path}`).sort());
+  const robots = readFileSync(new URL("../build/robots.txt", import.meta.url), "utf8");
+  assert.match(robots, /^Sitemap: https:\/\/oungseik\.github\.io\/sitemap\.xml$/m);
+});
 
 test("portfolio pages and their internal links work without client JavaScript", () => {
   for (const path of pages) {

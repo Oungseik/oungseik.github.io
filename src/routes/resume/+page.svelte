@@ -101,6 +101,7 @@
 <svelte:head>
   <title>Resume — Aung Thu Win</title>
   <meta name="description" content="Printable software engineering resume — Aung Thu Win." />
+  <link rel="canonical" href="https://oungseik.github.io/resume/" />
 </svelte:head>
 
 <main class="resume-preview">
