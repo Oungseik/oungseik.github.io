@@ -1,5 +1,17 @@
 # sv
 
+## Portfolio
+
+The homepage lives in `src/routes/(portfolio)/+page.svelte`. Edit the two featured
+projects in `src/lib/projects.ts`; their detail pages are generated at
+`/projects/brif-mcp/` and `/projects/bookogsend/`. Shared portfolio styles are in
+`src/routes/(portfolio)/portfolio.css`, scoped separately from the résumé.
+
+Run `pnpm dev` to preview, `pnpm check` for Svelte/TypeScript diagnostics, and
+`pnpm test` to build the static site and verify its page links and content.
+The build produces directory indexes for GitHub Pages. Writing is intentionally
+not included yet. Newsreader is self-hosted under `static/fonts`, with its OFL license.
+
 Everything you need to build a Svelte project, powered by [`sv`](https://github.com/sveltejs/cli).
 
 ## Creating a project
