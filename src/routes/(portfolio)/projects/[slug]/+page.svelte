@@ -23,17 +23,19 @@
       </div>
       <div>
         <dt>My role</dt>
-        <dd>Full-stack engineering</dd>
+        <dd>{project.role}</dd>
       </div>
       <div>
         <dt>Team</dt>
-        <dd>Binary Stride</dd>
+        <dd>{project.team}</dd>
       </div>
     </dl>
     <p class="secondary team-context" {@attach reveal}>{project.context}</p>
-    <a class="text-link" href={project.url} {@attach reveal}
-      >Visit {project.domain} <span aria-hidden="true">↗</span></a
-    >
+    {#if project.url}
+      <a class="text-link" href={project.url} {@attach reveal}
+        >Visit {project.domain} <span aria-hidden="true">↗</span></a
+      >
+    {/if}
   </header>
   <section class="section-layout case-section" aria-labelledby="overview-heading">
     <h2 id="overview-heading" class="section-heading" {@attach reveal}>Overview</h2>

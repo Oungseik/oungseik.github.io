@@ -8,6 +8,8 @@ export const projects = [
     technologies: ["TypeScript", "Next.js", "Mastra", "Prisma", "Gemini"],
     url: "https://www.getbrif.ai/",
     domain: "getbrif.ai",
+    role: "Full-stack engineering",
+    team: "Binary Stride",
     context: "Built for Binary Stride through Crossworks Myanmar.",
     introduction:
       "Brif combines registry records with AI-assisted public-source research to support company and person due diligence. I worked on the MCP tools, embedded interfaces, research workflows, and the authentication and billing behind them.",
@@ -39,6 +41,8 @@ export const projects = [
     technologies: ["TypeScript", "Next.js", "tRPC", "Prisma", "PHP", "WooCommerce"],
     url: "https://bookogsend.dk/",
     domain: "bookogsend.dk",
+    role: "Full-stack engineering",
+    team: "Binary Stride",
     context: "Contributed to the Binary Stride team through Crossworks Myanmar.",
     introduction:
       "Bookogsend is a multi-carrier shipping platform supporting GLS and Team JK. My contributions focused on connecting WooCommerce orders to shipments and reconciling carrier charges with the platform’s billing workflows.",
@@ -60,5 +64,38 @@ export const projects = [
     ],
     focus:
       "My focus was the connection between systems: carrying order data into shipments, recovering missed synchronization, and bringing carrier charges into invoicing."
+  },
+  {
+    slug: "test-canvas",
+    name: "Test Canvas",
+    category: "Mobile testing infrastructure",
+    summary: "An Android and iOS device farm for running tests across real devices.",
+    contribution: "Device orchestration, real-time controls, and frontend–backend integration.",
+    technologies: ["TypeScript", "Appium", "Selenium Grid", "Socket.IO", "tRPC", "TanStack Query"],
+    url: null,
+    domain: null,
+    role: "Backend engineering",
+    team: "Brillar",
+    context: "Contributed as a backend engineer at Brillar.",
+    introduction:
+      "Test Canvas is an Android and iOS device farm for running tests across real devices. At Brillar, I maintained its Appium nodes and Selenium Grid integration, worked on real-time device status and controls, and simplified frontend–backend integration.",
+    problem:
+      "Running tests across multiple real devices requires coordinating test sessions, device status, and controls. Those capabilities also need to connect to the interface people use to manage the devices.",
+    sections: [
+      {
+        title: "Testing across real devices",
+        body: "I maintained Appium nodes and Selenium Grid integration, enabling tests on up to 10 devices simultaneously on a single M2 Mac mini."
+      },
+      {
+        title: "Real-time device controls",
+        body: "I replaced Redis messaging and Express REST endpoints with type-safe Socket.IO events for device status and controls."
+      },
+      {
+        title: "Connecting the interface and backend",
+        body: "I introduced tRPC and TanStack Query to simplify state management and frontend–backend integration."
+      }
+    ],
+    focus:
+      "My work connected the device-testing infrastructure to the status updates and controls exposed through the interface."
   }
 ];

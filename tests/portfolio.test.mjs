@@ -3,7 +3,7 @@ import { readFileSync } from "node:fs";
 import test from "node:test";
 
 // Run after pnpm build: these checks cover the files served by static hosting.
-const pages = ["/", "/projects/brif-mcp/", "/projects/bookogsend/", "/resume/"];
+const pages = ["/", "/projects/brif-mcp/", "/projects/bookogsend/", "/projects/test-canvas/", "/resume/"];
 const htmlAt = (path) =>
   readFileSync(new URL(`../build${path.replace(/\/?$/, "/")}index.html`, import.meta.url), "utf8");
 
@@ -29,6 +29,7 @@ test("portfolio pages and their internal links work without client JavaScript", 
   );
   assert.ok(destinations.includes("/projects/brif-mcp"));
   assert.ok(destinations.includes("/projects/bookogsend"));
+  assert.ok(destinations.includes("/projects/test-canvas"));
   assert.ok(!destinations.some((path) => path.startsWith("/blog")));
   for (const path of pages.slice(1, 3)) {
     const html = htmlAt(path);
@@ -36,4 +37,9 @@ test("portfolio pages and their internal links work without client JavaScript", 
     assert.match(html, /Crossworks Myanmar/);
     assert.match(html, /Binary Stride/);
   }
+  const testCanvas = htmlAt("/projects/test-canvas/");
+  assert.match(testCanvas, /My contribution/);
+  assert.match(testCanvas, /<dd>Brillar<\/dd>/);
+  assert.match(testCanvas, /<dd>Backend engineering<\/dd>/);
+  assert.match(testCanvas, /up to 10 devices simultaneously on a single M2 Mac mini/);
 });

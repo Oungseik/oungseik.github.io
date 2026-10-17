@@ -2,9 +2,9 @@
 
 ## Portfolio
 
-The homepage lives in `src/routes/(portfolio)/+page.svelte`. Edit the two featured
+The homepage lives in `src/routes/(portfolio)/+page.svelte`. Edit the featured
 projects in `src/lib/projects.ts`; their detail pages are generated at
-`/projects/brif-mcp/` and `/projects/bookogsend/`. Shared portfolio styles are in
+`/projects/brif-mcp/`, `/projects/bookogsend/`, and `/projects/test-canvas/`. Shared portfolio styles are in
 `src/routes/(portfolio)/portfolio.css`, scoped separately from the résumé.
 
 Run `pnpm dev` to preview, `pnpm check` for Svelte/TypeScript diagnostics, and
