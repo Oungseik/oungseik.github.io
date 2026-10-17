@@ -269,17 +269,21 @@
               <section class="resume-section" aria-labelledby="skills-heading">
                 <h2 id="skills-heading">Technical Skills</h2>
                 <div class="skills">
-                  <p><strong>Languages:</strong> Typescript, JavaScript, Rust, Go</p>
+                  <p><strong>Languages:</strong> TypeScript, JavaScript, Go, Python</p>
                   <p>
-                    <strong>Frameworks:</strong> NextJS, Svelte, Prisma, Drizzle, tRPC/oRPC, Tanstack,
-                    Huma, Chi, Ent, Axum, Sqlx
+                    <strong>Web &amp; APIs:</strong> Next.js, Svelte, FastAPI, tRPC, Socket.IO
                   </p>
                   <p>
-                    <strong>Data &amp; infrastructure:</strong> Linux (Nix, Debian, Ubuntu, Fedora), AWS,
-                    GCP, Docker, Postgres, MySQL, Sqlite
+                    <strong>Databases &amp; ORMs:</strong> PostgreSQL, MySQL, SQLite, Prisma, Drizzle
                   </p>
                   <p>
-                    <strong>Testing &amp; delivery:</strong> Playwright, Vitest, Nix, Github Action, Opentelemetry
+                    <strong>Cloud &amp; delivery:</strong> Linux, Docker, AWS, Google Cloud, GitHub Actions
+                  </p>
+                  <p>
+                    <strong>Testing &amp; observability:</strong> Playwright, Vitest, OpenTelemetry
+                  </p>
+                  <p>
+                    <strong>AI integration:</strong> Model Context Protocol (MCP), Mastra, LangChain
                   </p>
                 </div>
               </section>
