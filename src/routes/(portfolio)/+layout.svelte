@@ -24,6 +24,7 @@
       <a href={`${resolve("/(portfolio)")}#work`}>Work</a>
       <a href={`${resolve("/(portfolio)")}#about`}>About</a>
       <a href={resolve("/resume")}>Résumé</a>
+      <a href="https://github.com/oungseik">GitHub</a>
     </nav>
   </header>
   <main id="main" class="page-width" tabindex="-1">
