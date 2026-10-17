@@ -156,3 +156,14 @@ You can preview the production build with `npm run preview`.
 The static adapter writes the prerendered site to `build`. Remote-function support is
 enabled, but request-time queries, forms, and commands require a server and cannot run
 on a static host such as GitHub Pages. Use remote `prerender` functions for static data.
+
+## Deployment
+
+GitHub Actions runs `pnpm check` and `pnpm test` on pull requests and pushes to
+`main`. After checks pass on `main`, it uploads `build/` as a Pages artifact and
+publishes it at https://oungseik.github.io/. You can also run the workflow manually
+from the Actions tab on `main`.
+
+Keep `build/` ignored: commit source files, `pnpm-lock.yaml`, and the workflow,
+not generated output. CI uses Node.js 24 and the pnpm version in `package.json`.
+In the repository's **Settings → Pages**, set **Source** to **GitHub Actions**.
